@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="wrap_content"
+   android:layout_width="wrap_content" 
+   android:paddingBottom="5px"
+   android:paddingTop="5px" 
+   android:paddingLeft="5px">
+   <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1">
+	    <TableRow >
+	       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		   android:layout_height="wrap_content"
+		   android:layout_width="wrap_content" 
+		   android:paddingBottom="5px"
+		   android:paddingTop="5px" 
+		   android:paddingRight="5px">
+			   <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:stretchColumns="1">
+				    <TableRow >
+						   <TextView android:id="@+id/details_title"
+					      android:layout_width="wrap_content"
+					      android:layout_height="wrap_content"
+					      android:textSize="24px"
+					      android:textStyle="bold"
+					      android:gravity="left"/>
+					</TableRow>
+					<TableRow >
+					  	  <TextView android:id="@+id/details_value" 
+					      android:layout_width="wrap_content" 
+					      android:layout_height="wrap_content"
+					      android:textSize="18px"
+					      android:textColor="#C3CAD0"/>
+					</TableRow>
+				</TableLayout>
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			   android:layout_height="wrap_content" 
+			   android:gravity="right"
+			   android:layout_width="wrap_content" 
+			   android:paddingBottom="5px"
+			   android:paddingTop="5px" 
+			   android:paddingRight="5px">
+			   <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/call_button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:cropToPadding="false"
+				android:paddingLeft="10dp"
+				android:src="@drawable/call">
+				</ImageButton>
+				<!-- 
+			  <ImageView
+		       android:id="@+id/call_icon"
+		       android:layout_width="wrap_content"
+		       android:layout_height="fill_parent"
+		       android:layout_marginRight="10px"
+		       android:src="@drawable/call" />
+		       -->
+		  	  <ImageView
+		       android:id="@+id/action_img"
+		       android:layout_width="wrap_content"
+		       android:layout_height="fill_parent"
+		       android:layout_marginRight="10px"
+		       android:layout_marginLeft="10px"
+		       android:src="@drawable/home" />
+			</LinearLayout>
+		</TableRow>
+	</TableLayout>
+</LinearLayout>

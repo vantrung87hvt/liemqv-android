@@ -22,15 +22,20 @@
       <TextView android:id="@+id/name"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginLeft="5px"
+      android:textSize="20px"
+      android:textStyle="bold"
       android:gravity="center"/>
   	  <TextView android:id="@+id/email" 
       android:layout_width="wrap_content" 
       android:layout_height="wrap_content"
-      android:layout_marginLeft="10px" 
+      android:layout_marginLeft="5px" 
       android:textColor="#0099CC"/>
+  	  <!-- 
   	  <ListView 
        android:id="@+id/ListContact"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"/>
+      -->
     </LinearLayout>
 </LinearLayout>
