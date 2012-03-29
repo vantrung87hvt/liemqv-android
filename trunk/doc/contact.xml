@@ -1,0 +1,26 @@
+<hrm-contact>
+	<contact>
+		<id>111</id>
+		<name>Quang Van Liem</name>
+		<phone>0989320758</phone>
+		<email>liemqv@gmail.com</email>
+	</contact>
+	<contact>
+		<id>112</id>
+		<name>Phan Van Anh</name>
+		<phone>01234656814</phone>
+		<email>misa2@gmail.com</email>
+	</contact>
+	<contact>
+		<id>113</id>
+		<name>Tran Van Hung</name>
+		<phone>12346884544</phone>
+		<email>misa3@gmail.com</email>
+	</contact>
+	<contact>
+		<id>114</id>
+		<name>Tran Tuan Son</name>
+		<phone>34563456345</phone>
+		<email>misa4@gmail.com</email>
+	</contact>
+</hrm-contact>

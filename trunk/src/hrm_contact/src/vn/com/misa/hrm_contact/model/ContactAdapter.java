@@ -15,9 +15,9 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 	private ArrayList<Contact> arrContact;
 	Activity context;
 
-    public ContactAdapter(Activity context, int textViewResourceId, ArrayList<Contact> objContact) {
-        super(context, textViewResourceId, objContact);
-        this.arrContact = objContact;
+    public ContactAdapter(Activity context, int textViewResourceId, ArrayList<Contact> _arrContacs) {
+        super(context, textViewResourceId, _arrContacs);
+        this.arrContact = _arrContacs;
         this.context = context;
     }
 
@@ -45,4 +45,14 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 		}
 		return v;
     }
+
+	public ArrayList<Contact> getArrContact() {
+		return arrContact;
+	}
+
+	public void setArrContact(ArrayList<Contact> arrContact) {
+		this.arrContact = arrContact;
+	}
+    
+    
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="wrap_content"
+   android:layout_width="fill_parent" 
+   android:paddingBottom="5px"
+   android:paddingTop="5px" 
+   android:paddingLeft="5px"
+   android:orientation="vertical">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	   android:layout_height="wrap_content"
+	   android:layout_width="fill_parent" 
+	   android:paddingBottom="5px"
+	   android:paddingTop="5px"
+	   android:background="#C3CAD0"
+	   android:paddingLeft="5px">
+		   <ImageView
+		       android:id="@+id/avatar"
+		       android:layout_width="wrap_content"
+		       android:layout_height="fill_parent"
+		       android:layout_marginRight="6dip"
+		       android:src="@drawable/agent" />
+		   <TextView android:id="@+id/details_name"
+		      android:layout_width="wrap_content"
+		      android:layout_height="wrap_content"
+		      android:textSize="20sp"
+		      android:gravity="center_vertical"
+		      android:textStyle="bold"/>
+		   <RatingBar android:id="@+id/favorites"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:numStars="1"
+		        android:maxWidth="24px"
+		        android:maxHeight="24px"
+		        android:stepSize="1.0"/>
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	   android:layout_height="wrap_content"
+	   android:layout_width="fill_parent" 
+	   android:paddingBottom="5px"
+	   android:paddingTop="5px" 
+	   android:paddingLeft="5px">
+		<ListView 
+	       android:id="@+id/ListContactDetails"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"/>
+	</LinearLayout>
+</LinearLayout>
