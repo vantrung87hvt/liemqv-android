@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp" >
+    <ImageView
+        android:id="@+id/log_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/log" />
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" >
+
+        <TextView
+            android:id="@+id/contact_name"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:text="Quang Liem"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/contact_number"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:textSize="10dp" 
+            android:text="123-456-789"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/log_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:textSize="18dp"
+        android:text="4 days ago"/>
+
+    <ImageButton
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/call_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:background="#000000"
+        android:cropToPadding="false"
+        android:maxWidth="50dp"
+        android:paddingLeft="2dp"
+        android:src="@drawable/call" >
+
+    </ImageButton>
+</LinearLayout>

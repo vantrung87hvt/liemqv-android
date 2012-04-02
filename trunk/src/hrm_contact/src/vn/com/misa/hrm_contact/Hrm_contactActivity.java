@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import vn.com.misa.hrm_contact.activity.ContactActivity;
 import vn.com.misa.hrm_contact.activity.DemoActivity;
+import vn.com.misa.hrm_contact.activity.FavoritestActivity;
 import vn.com.misa.hrm_contact.model.Contact;
 import vn.com.misa.hrm_contact.model.ContactAdapter;
 import android.R.bool;
@@ -71,7 +72,7 @@ public class Hrm_contactActivity  extends TabActivity {
                       .setContent(intent);
         tabHost.addTab(spec);
         
-        intent = new Intent().setClass(this, DemoActivity.class);
+        intent = new Intent().setClass(this, FavoritestActivity.class);
         spec = tabHost.newTabSpec("favorites").setIndicator("Favorites",
                           res.getDrawable(R.drawable.tab_favorites))
                       .setContent(intent);

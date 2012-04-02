@@ -27,7 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ContactActivity extends Activity {
+public class FavoritestActivity extends Activity {
 public static final String PREFS_NAME = "ContactPreFile";
 	
 	private static final int iNewContact = Menu.FIRST + 1;
@@ -81,7 +81,7 @@ public static final String PREFS_NAME = "ContactPreFile";
 //        contacts = new XmlToArrList().getContactListFromXml();
 		Toast.makeText(this, "Count: " + contacts.size(), Toast.LENGTH_LONG).show();
         //------
-        _contacAdapter = new ContactAdapter(ContactActivity.this, android.R.layout.simple_list_item_1, contacts);
+        _contacAdapter = new ContactAdapter(FavoritestActivity.this, android.R.layout.simple_list_item_1, contacts);
     }
     
     public void displayContact()
@@ -143,10 +143,12 @@ public static final String PREFS_NAME = "ContactPreFile";
                 break;
 			case iSearch:
         	   searchContact();
-               break;
+               break;         
         }
         return (super.onOptionsItemSelected(item));
     }
+    
+    
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
