@@ -19,13 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewContact"
-                   android:label="New Contact">
-           <intent-filter>
-           <action android:name="android.intent.action.VIEW" />
-           <category android:name="android.intent.category.DEFAULT" />
-          </intent-filter>
-         </activity>
          <activity android:name=".activity.DemoActivity"
                    android:label="Demo Activity">
            <intent-filter>
@@ -56,6 +49,20 @@
          </activity>
          <activity android:name=".activity.FavoritesActivity"
                    android:label="Favorites">
+           <intent-filter>
+           <action android:name="android.intent.action.VIEW" />
+           <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+         </activity>
+         <activity android:name=".activity.CallLogActivity"
+                   android:label="Call logs">
+           <intent-filter>
+           <action android:name="android.intent.action.VIEW" />
+           <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+         </activity>
+         <activity android:name=".activity.NewContactActivity"
+                   android:label="New contact">
            <intent-filter>
            <action android:name="android.intent.action.VIEW" />
            <category android:name="android.intent.category.DEFAULT" />

@@ -1,5 +1,10 @@
-package vn.com.misa.hrm_contact;
+package vn.com.misa.hrm_contact.activity;
 
+import vn.com.misa.hrm_contact.R;
+import vn.com.misa.hrm_contact.R.id;
+import vn.com.misa.hrm_contact.R.layout;
+import vn.com.misa.hrm_contact.model.Contact;
+import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class NewContact extends Activity {
-	// Declare our Views, so we can access them later
+public class NewContactActivity extends Activity {
+	private ContactDataSource datasource;
 	public static final String PREFS_NAME = "ContactPreFile";
 	
 	private EditText etName;
@@ -24,6 +29,8 @@ public class NewContact extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_contact);
+        
+        datasource = new ContactDataSource(this);
         
      // Get the EditText and Button References
         etName = (EditText)findViewById(R.id.etName);
@@ -39,33 +46,24 @@ public class NewContact extends Activity {
 	  		String sName = etName.getText().toString();
 	  		String sPhone = etPhone.getText().toString();
 	  		String sEmail = etEmail.getText().toString();
-	
-	  		//Send data to Display Contact Activity
-//	  		Intent i = new Intent(getApplicationContext(), Hrm_contactActivity.class);
-//	  		i.putExtra("sName", sName);
-//	  		i.putExtra("sPhone", sPhone);
-//	  		i.putExtra("sEmail", sEmail);
-//	  		i.putExtra("new_contact_close", true);
-//	  		startActivity(i);
 	  		
-	  		SharedPreferences dataContact = getSharedPreferences(PREFS_NAME, 0);
-	        SharedPreferences.Editor editor = dataContact.edit();
-	        editor.putString("sName", sName);
-	        editor.putString("sPhone", sPhone);
-	        editor.putString("sEmail", sEmail);
-	        editor.putString("sSatus", "close");
-
-	        // Commit the edits!
-	        editor.commit();
-	  		
-	  		finish();
+	  		//Lưu thông tin contact vào database
+	  		datasource.open();
+	  		//Thêm vào Database
+	  		Contact resContact = datasource.createContact(sName, sPhone, sEmail);
+	    	
+	  		Intent resultIntent = new Intent();
+	  	    resultIntent.putExtra("NEW_ID", resContact.getiID());
+	  	    setResult(Activity.RESULT_OK, resultIntent);
+	  	    finish();
 	  	}
 	  });
         btnCancel.setOnClickListener(new OnClickListener() {
 	  	@Override
 	  	public void onClick(View v) {
-	  		// Close the application
-	  		finish();
+	  		Intent resultIntent = new Intent();
+	  	    setResult(Activity.RESULT_CANCELED, resultIntent);
+	  	    finish();
 	  	}
 	  });
         

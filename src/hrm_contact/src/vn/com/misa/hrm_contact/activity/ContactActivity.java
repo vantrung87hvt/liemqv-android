@@ -2,12 +2,14 @@ package vn.com.misa.hrm_contact.activity;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
-import vn.com.misa.hrm_contact.NewContact;
 import vn.com.misa.hrm_contact.R;
 import vn.com.misa.hrm_contact.model.Contact;
 import vn.com.misa.hrm_contact.model.ContactAdapter;
+import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import vn.com.misa.hrm_contact.xml.XmlToArrList;
+import android.R.bool;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,7 +30,10 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ContactActivity extends Activity {
-public static final String PREFS_NAME = "ContactPreFile";
+	
+	private static boolean isSetlist = false;
+	private ContactDataSource datasource;
+	public static final String PREFS_NAME = "ContactPreFile";
 	
 	private static final int iNewContact = Menu.FIRST + 1;
 	private static final int iSearch = Menu.FIRST + 2;
@@ -48,7 +53,6 @@ public static final String PREFS_NAME = "ContactPreFile";
         
         /* gọi hiển thị danh bạ */
         initForm();
-        initDefaultValue();
         displayContact();
     }
     
@@ -63,31 +67,57 @@ public static final String PREFS_NAME = "ContactPreFile";
           });
     }
     
-    public void initDefaultValue()
+    public void getContactData()
     {
-    	contacts = new ArrayList<Contact>();
-    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
-        Contact c2 = new Contact("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
-        Contact c3 = new Contact("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
-        Contact c4 = new Contact("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
-        Contact c5 = new Contact("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
-        Contact c6 = new Contact("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
-        contacts.add(c1);
-        contacts.add(c2);
-        contacts.add(c3);
-        contacts.add(c4);
-        contacts.add(c5);
+//    	contacts = new ArrayList<Contact>();
+//    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
+//        Contact c2 = new Contact("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
+//        Contact c3 = new Contact("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
+//        Contact c4 = new Contact("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
+//        Contact c5 = new Contact("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
+//        Contact c6 = new Contact("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
+//        contacts.add(c1);
+//        contacts.add(c2);
+//        contacts.add(c3);
+//        contacts.add(c4);
+//        contacts.add(c5);
         
 //        contacts = new XmlToArrList().getContactListFromXml();
-		Toast.makeText(this, "Count: " + contacts.size(), Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, "Count: " + contacts.size(), Toast.LENGTH_LONG).show();
         //------
+        //Lấy dữ liệu từ Database 'hrm_contact'
+        datasource = new ContactDataSource(this);
+		datasource.open();
+
+		contacts = (ArrayList<Contact>) datasource.getAllContacts();
         _contacAdapter = new ContactAdapter(ContactActivity.this, android.R.layout.simple_list_item_1, contacts);
     }
     
     public void displayContact()
     {
-    	_contacAdapter.setArrContact(contacts);
-        listView.setAdapter(_contacAdapter);
+    	//Gọi hàm lấy dữ liệu từ Database
+    	getContactData();
+    	//Kiểm tra số lượng danh bạ
+    	if(contacts.size() <= 0)
+    	{
+    		TextView tvMsg = (TextView) findViewById(R.id.msg);
+    		tvMsg.append("Không có danh bạ để hiển thị");
+    		tvMsg.append("\n+ Menu -> Thêm để thêm danh bạ mới");
+    	}
+    	else
+    	{
+    		if(isSetlist == false)
+    		{
+	    		//Chỉ hiển gán danh sách một lần đầu tiên duy nhất
+	    		isSetlist = true;
+		    	_contacAdapter.setArrContact(contacts);
+		        listView.setAdapter(_contacAdapter);
+    		}
+    		else
+    		{
+    			_contacAdapter.notifyDataSetChanged();
+    		}
+    	}
     }
     
     public void showContactDetails(int _id)
@@ -98,14 +128,18 @@ public static final String PREFS_NAME = "ContactPreFile";
     
     public void addContact()
     {
-    	Contact obj = new Contact("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
-    	contacts.add(obj);
-    	displayContact();
+//    	Contact obj = new Contact("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
+//    	//Thêm vào Database
+//    	Contact resContact = datasource.createContact(obj);
+//    	contacts.add(resContact);
+//    	//Hiển thị
+//    	displayContact();
     	
-//    	Intent newContact = new Intent(this, NewContact.class);
-//        startActivity(newContact);
+    	Intent newContact = new Intent(this, NewContactActivity.class);
+        startActivity(newContact);
+        
 //        
-//        //Get data from NewContact Activity
+//        Get data from NewContact Activity
 //        SharedPreferences dataContact = getSharedPreferences(PREFS_NAME, 0);
 //        
 //        String sStatus = dataContact.getString("sSatus", "open");
@@ -122,6 +156,21 @@ public static final String PREFS_NAME = "ContactPreFile";
 //    	displayContact();
     }
     
+    
+    @Override
+    public void onActivityResult(int requestCode,int resultCode,Intent data)
+    {
+	     super.onActivityResult(requestCode, resultCode, data);
+	     if(requestCode == RESULT_OK)
+	     {
+	    	 Integer NEW_ID = Integer.parseInt(data.getStringExtra("ComingFrom"));
+	    	 Contact newContact = datasource.getOneContacts(NEW_ID);
+	    	 contacts.add(newContact);
+	    	 //Hiển thị
+	    	 displayContact();
+	     }
+    }
+    
     @Override
     public boolean onContextItemSelected (MenuItem item) {
         super.onContextItemSelected(item);
@@ -135,11 +184,10 @@ public static final String PREFS_NAME = "ContactPreFile";
 	{
     	switch (item.getItemId())
     	{
-			case iNewContact:
-	            addContact();
+    		case iNewContact:
+				addContact();
 	            break;
 			case iIOContact:
-                
                 break;
 			case iSearch:
         	   searchContact();

@@ -2,7 +2,6 @@ package vn.com.misa.hrm_contact.activity;
 
 import java.util.ArrayList;
 
-import vn.com.misa.hrm_contact.NewContact;
 import vn.com.misa.hrm_contact.R;
 import vn.com.misa.hrm_contact.model.Contact;
 import vn.com.misa.hrm_contact.model.ContactAdapter;

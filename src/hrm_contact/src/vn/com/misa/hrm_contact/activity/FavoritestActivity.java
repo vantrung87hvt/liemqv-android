@@ -3,7 +3,6 @@ package vn.com.misa.hrm_contact.activity;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import vn.com.misa.hrm_contact.NewContact;
 import vn.com.misa.hrm_contact.R;
 import vn.com.misa.hrm_contact.model.Contact;
 import vn.com.misa.hrm_contact.model.ContactAdapter;
@@ -44,9 +43,9 @@ public static final String PREFS_NAME = "ContactPreFile";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_contact);
+        setContentView(R.layout.call_log);
         
-        /* gọi hiển thị danh bạ */
+        /* gọi hiển thị call log */
         initForm();
         initDefaultValue();
         displayContact();
@@ -54,7 +53,7 @@ public static final String PREFS_NAME = "ContactPreFile";
     
     public void initForm()
     {
-    	listView = (ListView) findViewById(R.id.ListContact);
+    	listView = (ListView) findViewById(R.id.list_call_log);
     	listView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                 int position, long id) {
