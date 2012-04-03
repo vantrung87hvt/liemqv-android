@@ -31,11 +31,5 @@
       android:layout_height="wrap_content"
       android:layout_marginLeft="5px" 
       android:textColor="#0099CC"/>
-  	  <!-- 
-  	  <ListView 
-       android:id="@+id/ListContact"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"/>
-      -->
     </LinearLayout>
 </LinearLayout>

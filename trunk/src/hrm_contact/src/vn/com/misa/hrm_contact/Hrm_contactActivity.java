@@ -3,9 +3,11 @@ package vn.com.misa.hrm_contact;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import vn.com.misa.hrm_contact.activity.CallLogActivity;
 import vn.com.misa.hrm_contact.activity.ContactActivity;
 import vn.com.misa.hrm_contact.activity.DemoActivity;
 import vn.com.misa.hrm_contact.activity.FavoritestActivity;
+import vn.com.misa.hrm_contact.activity.NewContactActivity;
 import vn.com.misa.hrm_contact.model.Contact;
 import vn.com.misa.hrm_contact.model.ContactAdapter;
 import android.R.bool;
@@ -60,7 +62,7 @@ public class Hrm_contactActivity  extends TabActivity {
         tabHost.addTab(spec);
 
         // Do the same for the other tabs
-        intent = new Intent().setClass(this, DemoActivity.class);
+        intent = new Intent().setClass(this, CallLogActivity.class);
         spec = tabHost.newTabSpec("call_log").setIndicator("Call log",
                           res.getDrawable(R.drawable.tab_call_log))
                       .setContent(intent);
@@ -105,28 +107,8 @@ public class Hrm_contactActivity  extends TabActivity {
     
     public void addContact()
     {
-//    	Contact obj = new Contact("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
-//    	contacts.add(obj);
-//    	displayContact();
-    	
-    	Intent newContact = new Intent(this, NewContact.class);
+    	Intent newContact = new Intent(this, NewContactActivity.class);
         startActivity(newContact);
-        
-        //Get data from NewContact Activity
-        SharedPreferences dataContact = getSharedPreferences(PREFS_NAME, 0);
-        
-        String sStatus = dataContact.getString("sSatus", "open");
-        while(sStatus.equals("open"))
-        {
-        	
-        }
-        String sName = dataContact.getString("sName", "No Name");
-        String sPhone = dataContact.getString("sPhone", "No phone number");
-        String sEmail = dataContact.getString("sEmail", "No Email");
-        
-    	Contact objContact = new Contact(sName, sPhone, sEmail, false);
-    	contacts.add(objContact);
-    	displayContact();
     }
     
     @Override
