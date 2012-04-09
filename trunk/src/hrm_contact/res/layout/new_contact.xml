@@ -2,29 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
+    android:layout_height="fill_parent">
+    <TextView android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:text="Name:"/>
 	<EditText
 		android:id="@+id/etName"
 		android:singleLine="true"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:hint="Name"
-	/>
+	    android:hint="Name"/>
+	<TextView android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:text="Email:"/>
 	<EditText
 		android:id="@+id/etPhone"
 		android:singleLine="true"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:hint="Phone"
-	/>
+	    android:hint="Phone"/>
+	<TextView android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:text="Phone:"/>
 	<EditText
 		android:id="@+id/etEmail"
 		android:singleLine="true"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:hint="Email"
-	/>
+	    android:hint="Email"/>
 
 	<LinearLayout
 	    xmlns:android="http://schemas.android.com/apk/res/android"

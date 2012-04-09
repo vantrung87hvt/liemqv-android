@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-import vn.com.misa.hrm_contact.model.Contact;
+import vn.com.misa.hrm_contact.bean.Contact;
 
 import android.sax.Element;
 import android.widget.Toast;

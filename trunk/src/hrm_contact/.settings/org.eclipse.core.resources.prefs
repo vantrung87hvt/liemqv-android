@@ -1,8 +1,10 @@
+#Mon Apr 09 20:18:04 ICT 2012
 eclipse.preferences.version=1
 encoding//src/vn/com/misa/hrm_contact/Hrm_contactActivity.java=UTF-8
 encoding//src/vn/com/misa/hrm_contact/activity/CallLogActivity.java=UTF-8
 encoding//src/vn/com/misa/hrm_contact/activity/ContactActivity.java=UTF-8
 encoding//src/vn/com/misa/hrm_contact/activity/ContactDetailsActivity.java=UTF-8
+encoding//src/vn/com/misa/hrm_contact/activity/EditContactActivity.java=UTF-8
 encoding//src/vn/com/misa/hrm_contact/activity/FavoritestActivity.java=UTF-8
 encoding//src/vn/com/misa/hrm_contact/activity/NewContactActivity.java=UTF-8
 encoding//src/vn/com/misa/hrm_contact/activity/SearchContactActivity.java=UTF-8

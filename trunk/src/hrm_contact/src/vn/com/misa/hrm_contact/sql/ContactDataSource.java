@@ -3,8 +3,9 @@ package vn.com.misa.hrm_contact.sql;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.com.misa.hrm_contact.model.Contact;
+import vn.com.misa.hrm_contact.bean.Contact;
 
+import android.R.bool;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -64,12 +65,33 @@ public class ContactDataSource {
 			cursor.close();
 			return newContact;
 		}
+		
+		public boolean editContact(Contact _contact)
+		{
+			boolean bRes = false;
+			
+		    SQLiteDatabase db = dbHelper.getWritableDatabase();
+		    ContentValues values = new ContentValues();
+		    values.put(ContactSqliteHelper.COL_NAME, _contact.getsName());
+		    values.put(ContactSqliteHelper.COL_PHONE, _contact.getsPhone());
+		    values.put(ContactSqliteHelper.COL_EMAIL, _contact.getsEmail());
 
-		public void deleteContact(Contact objContact) {
-			long id = objContact.getiID();
-			Toast.makeText(context, "Contact deleted!", Toast.LENGTH_LONG).show();
+		    if(db.update(ContactSqliteHelper.TABLE_CONTACT, values, ContactSqliteHelper.COLUMN_ID + " = ?",
+		            new String[] { String.valueOf(_contact.getiID()) }) > 0)
+		    {
+		    	bRes = true;
+		    }
+		    else
+		    {
+		    	bRes = false;
+		    }
+
+			return bRes;
+		}
+
+		public void deleteContact(int _id) {
 			database.delete(ContactSqliteHelper.TABLE_CONTACT, ContactSqliteHelper.COLUMN_ID
-					+ " = " + id, null);
+					+ " = " + _id, null);
 		}
 
 		public List<Contact> getAllContacts() {
@@ -100,10 +122,56 @@ public class ContactDataSource {
 			cursor.close();
 			return objContact;
 		}
+		
+		public int CheckDupContact(Contact _contact) {
+			int iRes = 0;
+			String sWhere = ContactSqliteHelper.COL_NAME + " = '" + _contact.getsName() + "' OR "+
+			ContactSqliteHelper.COL_PHONE + " = '" + _contact.getsPhone() + "' OR "+
+			ContactSqliteHelper.COL_EMAIL + " = '" + _contact.getsEmail() + "'";
+			Cursor cursor = database.query(ContactSqliteHelper.TABLE_CONTACT,
+					allColumns, sWhere, null, null, null, null);
+			cursor.moveToFirst();
+			if(!cursor.isAfterLast())
+			{
+				if(cursor.getString(cursor.getColumnIndex("sName")).toUpperCase().equals(_contact.getsName().toUpperCase()))
+				{
+					iRes = 1;
+				}
+				else
+					if(cursor.getString(cursor.getColumnIndex("sPhone")).toUpperCase().equals(_contact.getsPhone().toUpperCase()))
+					{
+						iRes = 2;
+					}
+				else
+					if(cursor.getString(cursor.getColumnIndex("sEmail")).toUpperCase().equals(_contact.getsEmail().toUpperCase()))
+					{
+						iRes = 3;
+					}
+			}
+			// Đóng con trỏ kết nối
+			cursor.close();
+			return iRes;
+		}
+		
+		public int getMaxID() {
+			int iRes = 0;
+			
+			String selectQuery = "SELECT MAX(" + ContactSqliteHelper.COLUMN_ID + ") as max_id FROM " + ContactSqliteHelper.TABLE_CONTACT;
+			 
+		    SQLiteDatabase db = dbHelper.getWritableDatabase();
+		    Cursor cursor = db.rawQuery(selectQuery, null);
+		    cursor.moveToFirst();
+		    if(!cursor.isAfterLast())
+		    {
+		    	iRes = cursor.getInt(cursor.getColumnIndex("max_id"));
+		    }
+			cursor.close();
+			return iRes;
+		}
 
 		private Contact cursorToContact(Cursor cursor) {
 			Contact objContact = new Contact();
-			objContact.setiID(cursor.getInt(0));
+			objContact.setiID(cursor.getInt(cursor.getColumnIndexOrThrow("_id")));
 			objContact.setsName(cursor.getString(cursor.getColumnIndexOrThrow("sName")));
 			objContact.setsPhone(cursor.getString(cursor.getColumnIndexOrThrow("sPhone")));
 			objContact.setsEmail(cursor.getString(cursor.getColumnIndexOrThrow("sEmail")));

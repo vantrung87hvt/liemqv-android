@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.model.Contact;
-import vn.com.misa.hrm_contact.model.ContactAdapter;
+import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import vn.com.misa.hrm_contact.xml.XmlToArrList;
 import android.app.Activity;
 import android.content.Intent;

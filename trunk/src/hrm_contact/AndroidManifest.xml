@@ -47,7 +47,7 @@
            <category android:name="android.intent.category.DEFAULT" />
           </intent-filter>
          </activity>
-         <activity android:name=".activity.FavoritesActivity"
+         <activity android:name=".activity.FavoritestActivity"
                    android:label="Favorites">
            <intent-filter>
            <action android:name="android.intent.action.VIEW" />
@@ -63,6 +63,13 @@
          </activity>
          <activity android:name=".activity.NewContactActivity"
                    android:label="New contact">
+           <intent-filter>
+           <action android:name="android.intent.action.VIEW" />
+           <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+         </activity>
+         <activity android:name=".activity.EditContactActivity"
+                   android:label="Edit contact">
            <intent-filter>
            <action android:name="android.intent.action.VIEW" />
            <category android:name="android.intent.category.DEFAULT" />

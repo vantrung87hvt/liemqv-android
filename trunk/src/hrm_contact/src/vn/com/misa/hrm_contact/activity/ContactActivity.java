@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.model.Contact;
-import vn.com.misa.hrm_contact.model.ContactAdapter;
+import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import vn.com.misa.hrm_contact.xml.XmlToArrList;
 import android.R.bool;
@@ -30,7 +30,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ContactActivity extends Activity {
-	
+	private static boolean isFirst = true;
 	private static boolean isSetlist = false;
 	private ContactDataSource datasource;
 	public static final String PREFS_NAME = "ContactPreFile";
@@ -40,6 +40,10 @@ public class ContactActivity extends Activity {
 	private static final int iDisplayOption = Menu.FIRST + 3;
 	private static final int iAccount = Menu.FIRST + 4;
     private static final int iIOContact = Menu.FIRST + 5;
+    
+    public static final int REQUEST_CODE_ADD = 1;
+    public static final int REQUEST_CODE_DETAILS = 2;
+    public static final int REQUEST_CODE_EDIT = 3;
     
     ListView listView;
     Toast msg;
@@ -62,29 +66,14 @@ public class ContactActivity extends Activity {
     	listView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                 int position, long id) {
-            	showContactDetails(position);
+            	int _id = contacts.get(position).getiID();
+            	showContactDetails(position ,_id);
             }
           });
     }
     
     public void getContactData()
     {
-//    	contacts = new ArrayList<Contact>();
-//    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
-//        Contact c2 = new Contact("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
-//        Contact c3 = new Contact("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
-//        Contact c4 = new Contact("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
-//        Contact c5 = new Contact("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
-//        Contact c6 = new Contact("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
-//        contacts.add(c1);
-//        contacts.add(c2);
-//        contacts.add(c3);
-//        contacts.add(c4);
-//        contacts.add(c5);
-        
-//        contacts = new XmlToArrList().getContactListFromXml();
-//		Toast.makeText(this, "Count: " + contacts.size(), Toast.LENGTH_LONG).show();
-        //------
         //Lấy dữ liệu từ Database 'hrm_contact'
         datasource = new ContactDataSource(this);
 		datasource.open();
@@ -95,82 +84,45 @@ public class ContactActivity extends Activity {
     
     public void displayContact()
     {
-    	//Gọi hàm lấy dữ liệu từ Database
-    	getContactData();
-    	//Kiểm tra số lượng danh bạ
-    	if(contacts.size() <= 0)
-    	{
-    		TextView tvMsg = (TextView) findViewById(R.id.msg);
-    		tvMsg.append("Không có danh bạ để hiển thị");
-    		tvMsg.append("\n+ Menu -> Thêm để thêm danh bạ mới");
-    	}
-    	else
-    	{
-    		if(isSetlist == false)
-    		{
-	    		//Chỉ hiển gán danh sách một lần đầu tiên duy nhất
-	    		isSetlist = true;
-		    	_contacAdapter.setArrContact(contacts);
-		        listView.setAdapter(_contacAdapter);
-    		}
-    		else
-    		{
-    			_contacAdapter.notifyDataSetChanged();
-    		}
-    	}
+    	//Chỉ lấy danh sách từ Database một lần duy nhất
+		if(isSetlist == false || _contacAdapter == null)
+		{
+	    	//Gọi hàm lấy dữ liệu từ Database
+	    	getContactData();
+	    	//Kiểm tra số lượng danh bạ
+	    	if(contacts.size() <= 0)
+	    	{
+	    		TextView tvMsg = (TextView) findViewById(R.id.msg);
+	    		tvMsg.append("Không có danh bạ để hiển thị");
+	    		tvMsg.append("\n+ Menu -> Thêm để thêm danh bạ mới");
+	    	}
+	    	_contacAdapter.setArrContact(contacts);
+	        listView.setAdapter(_contacAdapter);
+	        //Đánh dấu đã gán danh sách cho Adapter
+	    	isSetlist = true;
+		}
+		else
+		{
+			_contacAdapter.notifyDataSetChanged();
+		}
     }
     
-    public void showContactDetails(int _id)
+    public void showContactDetails(int _index, int _id)
     {
-    	Intent contactDetails = new Intent(this, ContactDetailsActivity.class);
-        startActivity(contactDetails);
+        Intent iContact = new Intent(ContactActivity.this, ContactDetailsActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("contact_index", _index);
+        b.putInt("contact_id", _id);
+        iContact.putExtras(b);
+        startActivityForResult(iContact, REQUEST_CODE_DETAILS);
     }
     
     public void addContact()
     {
-//    	Contact obj = new Contact("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
-//    	//Thêm vào Database
-//    	Contact resContact = datasource.createContact(obj);
-//    	contacts.add(resContact);
-//    	//Hiển thị
-//    	displayContact();
-    	
     	Intent newContact = new Intent(this, NewContactActivity.class);
-        startActivity(newContact);
-        
-//        
-//        Get data from NewContact Activity
-//        SharedPreferences dataContact = getSharedPreferences(PREFS_NAME, 0);
-//        
-//        String sStatus = dataContact.getString("sSatus", "open");
-//        while(sStatus.equals("open"))
-//        {
-//        	
-//        }
-//        String sName = dataContact.getString("sName", "No Name");
-//        String sPhone = dataContact.getString("sPhone", "No phone number");
-//        String sEmail = dataContact.getString("sEmail", "No Email");
-//        
-//    	Contact objContact = new Contact(sName, sPhone, sEmail, false);
-//    	contacts.add(objContact);
-//    	displayContact();
+        startActivityForResult(newContact, REQUEST_CODE_ADD);
     }
-    
-    
-    @Override
-    public void onActivityResult(int requestCode,int resultCode,Intent data)
-    {
-	     super.onActivityResult(requestCode, resultCode, data);
-	     if(requestCode == RESULT_OK)
-	     {
-	    	 Integer NEW_ID = Integer.parseInt(data.getStringExtra("ComingFrom"));
-	    	 Contact newContact = datasource.getOneContacts(NEW_ID);
-	    	 contacts.add(newContact);
-	    	 //Hiển thị
-	    	 displayContact();
-	     }
-    }
-    
+
     @Override
     public boolean onContextItemSelected (MenuItem item) {
         super.onContextItemSelected(item);
@@ -223,10 +175,52 @@ public class ContactActivity extends Activity {
 		if((keyCode >= 16 && keyCode <= 25) || (keyCode >= 30 && keyCode <= 38) || (keyCode >= 44 && keyCode <= 50))
 		{
 			Intent searchContact = new Intent(this, SearchContactActivity.class);
-	        searchContact.putExtra("strKey", keyCode);
+	        Bundle b = new Bundle();
+	        b.putInt("strKey", keyCode);
+	        searchContact.putExtras(b);
 	        startActivity(searchContact);
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-
+	
+	/*
+	 * hàm nhận sự kiện khi có activity khác phát tín hiệu
+	 * */
+	@Override
+    public void onActivityResult(int requestCode,int resultCode,Intent data)
+    {
+	     super.onActivityResult(requestCode, resultCode, data);
+	     if(resultCode == RESULT_OK)
+	     {
+	    	 if(requestCode == REQUEST_CODE_ADD)
+		     {
+		    	 int new_id = data.getExtras().getInt("new_id");
+		    	 Contact newContact = datasource.getOneContacts(new_id);
+		    	 contacts.add(newContact);
+		    	 //Hiển thị
+		    	 displayContact();
+		     }
+	    	 else
+	    		 if(requestCode == REQUEST_CODE_DETAILS)
+			     {
+	    			 String action_type = data.getExtras().getString("action_type");
+	    			 if(action_type.equals("delete"))
+	    			 {
+				    	 int contact_index = data.getExtras().getInt("contact_index");
+				    	 contacts.remove(contact_index);
+	    			 }
+	    			 else
+	    				 if(action_type.equals("edit"))
+	    				 {
+	    					int edit_index = data.getExtras().getInt("edit_index");
+	    				    int edit_id = data.getExtras().getInt("edit_id");
+	    				    
+	    				    Contact ctEdit = datasource.getOneContacts(edit_id);
+	    				    contacts.set(edit_index, ctEdit);
+	    				 }
+			    	 //Hiển thị
+			    	 displayContact();
+			     }
+	     }
+    }	
 }

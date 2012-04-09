@@ -3,8 +3,8 @@ package vn.com.misa.hrm_contact.activity;
 import java.util.ArrayList;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.model.CallLLogAdapter;
-import vn.com.misa.hrm_contact.model.CallLog;
+import vn.com.misa.hrm_contact.bean.CallLLogAdapter;
+import vn.com.misa.hrm_contact.bean.CallLog;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,10 +32,10 @@ public class CallLogActivity extends Activity {
 	public void initDefaultValue()
     {
 		CallLog ctd1 = new CallLog("Quang Liem", 3, "Mobile", "123-456-789", "4 days ago");
-		CallLog ctd2 = new CallLog("Quang Liem2", 3, "Mobile", "123-456-789", "4 days ago");
-		CallLog ctd3 = new CallLog("Quang Liem3", 3, "Home", "123-456-789", "4 days ago");
-		CallLog ctd4 = new CallLog("Quang Liem4", 3, "Mobile", "123-456-789", "4 days ago");
-		CallLog ctd5 = new CallLog("Quang Liem5", 3, "Office", "123-456-789", "4 days ago");
+		CallLog ctd2 = new CallLog("Pham Hoang", 4, "Mobile", "123-456-789", "4 days ago");
+		CallLog ctd3 = new CallLog("Nguyen Linh", 1, "Home", "123-456-789", "4 days ago");
+		CallLog ctd4 = new CallLog("Bui Thanh Minh", 2, "Mobile", "123-456-789", "4 days ago");
+		CallLog ctd5 = new CallLog("Nguyen Hoai Nam", 5, "Office", "123-456-789", "4 days ago");
 		
 		CallLog = new ArrayList<CallLog>();
 		CallLog.add(ctd1);
