@@ -3,8 +3,8 @@ package vn.com.misa.hrm_contact.activity;
 import java.util.ArrayList;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.model.Contact;
-import vn.com.misa.hrm_contact.model.ContactAdapter;
+import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -51,12 +51,9 @@ public static final String PREFS_NAME = "ContactPreFile";
         initDefaultValue();
         /* Hiển thị theo key code truyền sang */
         Bundle extras = getIntent().getExtras();
-        if(extras !=null) 
+        if(extras != null) 
         {
-        	String value = extras.getString("strKey");
-        	String sKey = String.valueOf(value);
-        	msg = Toast.makeText(this, "KeyCode: " + value, Toast.LENGTH_LONG);
-            msg.show();
+        	String sKey = extras.getString("strKey");
         	txtKey.setText(sKey);
         	displayContactByKey(sKey);
         }

@@ -8,8 +8,8 @@ import vn.com.misa.hrm_contact.activity.ContactActivity;
 import vn.com.misa.hrm_contact.activity.DemoActivity;
 import vn.com.misa.hrm_contact.activity.FavoritestActivity;
 import vn.com.misa.hrm_contact.activity.NewContactActivity;
-import vn.com.misa.hrm_contact.model.Contact;
-import vn.com.misa.hrm_contact.model.ContactAdapter;
+import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import android.R.bool;
 import android.app.Activity;
 import android.app.ListActivity;
@@ -80,7 +80,7 @@ public class Hrm_contactActivity  extends TabActivity {
                       .setContent(intent);
         tabHost.addTab(spec);
 
-        tabHost.setCurrentTab(2); //Set list Contact display first
+        tabHost.setCurrentTab(2);
         
         
         /* gọi hiển thị danh bạ */
@@ -88,69 +88,69 @@ public class Hrm_contactActivity  extends TabActivity {
 //        displayContact();
     }
     
-    public void initDefaultValue()
-    {
-    	contacts = new ArrayList<Contact>();
-    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
-        Contact c2 = new Contact("Quang Trung", "098932077", "trungtq@gmail.com", false);
-        contacts.add(c1);
-        contacts.add(c2);
-         
-    }
+//    public void initDefaultValue()
+//    {
+//    	contacts = new ArrayList<Contact>();
+//    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
+//        Contact c2 = new Contact("Quang Trung", "098932077", "trungtq@gmail.com", false);
+//        contacts.add(c1);
+//        contacts.add(c2);
+//         
+//    }
     
-    public void displayContact()
-    {
-    	ListView listView = (ListView) findViewById(R.id.ListContact);
-        listView.setAdapter(new ContactAdapter(Hrm_contactActivity.this, android.R.layout.simple_list_item_1, contacts));
-    }
-    
-    
-    public void addContact()
-    {
-    	Intent newContact = new Intent(this, NewContactActivity.class);
-        startActivity(newContact);
-    }
-    
-    @Override
-    public boolean onContextItemSelected (MenuItem item) {
-        super.onContextItemSelected(item);
-        String str = (String) item.getTitle();
-		Toast.makeText(this, "select: " + str, Toast.LENGTH_LONG).show();
-        return true;
-    }
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-	{
-    	switch (item.getItemId())
-    	{
-			case MENU_ITEM_1:
-	            addContact();
-	            break;
-           case MENU_ITEM_2:
-                msg = Toast.makeText(this, "Menu Item 2 Clicked", Toast.LENGTH_LONG);
-                msg.show();
-                break;
-           case MENU_ITEM_3:
-        	   msg = Toast.makeText(this, "Menu Item 3 Clicked", Toast.LENGTH_LONG);
-               msg.show();
-               break;         
-        }
-        return (super.onOptionsItemSelected(item));
-    }
+//    public void displayContact()
+//    {
+//    	ListView listView = (ListView) findViewById(R.id.ListContact);
+//        listView.setAdapter(new ContactAdapter(Hrm_contactActivity.this, android.R.layout.simple_list_item_1, contacts));
+//    }
     
     
+//    public void addContact()
+//    {
+//    	Intent newContact = new Intent(this, NewContactActivity.class);
+//        startActivity(newContact);
+//    }
     
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem mSearch = menu.add(0, 1, Menu.FIRST, "Search");
-        mSearch.setIcon(R.drawable.ic_launcher);
-        MenuItem mAdd = menu.add(0, 2, 0, "New Contact");
-        mAdd.setIcon(R.drawable.ic_launcher);
-        MenuItem mIO = menu.add(0, 2, 0, "Import/Export");
-        mIO.setIcon(R.drawable.ic_launcher);
-        return true;
-    }
+//    @Override
+//    public boolean onContextItemSelected (MenuItem item) {
+//        super.onContextItemSelected(item);
+//        String str = (String) item.getTitle();
+//		Toast.makeText(this, "select: " + str, Toast.LENGTH_LONG).show();
+//        return true;
+//    }
+    
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item)
+//	{
+//    	switch (item.getItemId())
+//    	{
+//			case MENU_ITEM_1:
+//	            addContact();
+//	            break;
+//           case MENU_ITEM_2:
+//                msg = Toast.makeText(this, "Menu Item 2 Clicked", Toast.LENGTH_LONG);
+//                msg.show();
+//                break;
+//           case MENU_ITEM_3:
+//        	   msg = Toast.makeText(this, "Menu Item 3 Clicked", Toast.LENGTH_LONG);
+//               msg.show();
+//               break;         
+//        }
+//        return (super.onOptionsItemSelected(item));
+//    }
+    
+    
+    
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuItem mSearch = menu.add(0, 1, Menu.FIRST, "Search");
+//        mSearch.setIcon(R.drawable.ic_launcher);
+//        MenuItem mAdd = menu.add(0, 2, 0, "New Contact");
+//        mAdd.setIcon(R.drawable.ic_launcher);
+//        MenuItem mIO = menu.add(0, 2, 0, "Import/Export");
+//        mIO.setIcon(R.drawable.ic_launcher);
+//        return true;
+//    }
     
 //    @Override
 //	protected void onListItemClick(ListView l, View v, int position, long id) {

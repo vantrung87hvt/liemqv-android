@@ -3,7 +3,7 @@ package vn.com.misa.hrm_contact.activity;
 import vn.com.misa.hrm_contact.R;
 import vn.com.misa.hrm_contact.R.id;
 import vn.com.misa.hrm_contact.R.layout;
-import vn.com.misa.hrm_contact.model.Contact;
+import vn.com.misa.hrm_contact.bean.Contact;
 import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,10 +14,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NewContactActivity extends Activity {
 	private ContactDataSource datasource;
-	public static final String PREFS_NAME = "ContactPreFile";
 	
 	private EditText etName;
 	private EditText etPhone;
@@ -43,19 +43,44 @@ public class NewContactActivity extends Activity {
         btnSave.setOnClickListener(new OnClickListener() {
 	  	@Override
 	  	public void onClick(View v) {
+	  		Contact resContact = null;
+	  		Intent data = new Intent();
 	  		String sName = etName.getText().toString();
 	  		String sPhone = etPhone.getText().toString();
 	  		String sEmail = etEmail.getText().toString();
 	  		
+	  		Contact ctNew = new Contact(sName, sPhone, sEmail, false);
 	  		//Lưu thông tin contact vào database
 	  		datasource.open();
-	  		//Thêm vào Database
-	  		Contact resContact = datasource.createContact(sName, sPhone, sEmail);
-	    	
-	  		Intent resultIntent = new Intent();
-	  	    resultIntent.putExtra("NEW_ID", resContact.getiID());
-	  	    setResult(Activity.RESULT_OK, resultIntent);
-	  	    finish();
+	  		//Kiểm tra thông tin contact hiện tại đã tồn tại các thông tin (name, phone, email) chưa?
+	  		int iCheckDup = datasource.CheckDupContact(ctNew);
+	  		if(iCheckDup == 0)
+	  		{
+		  		//Thêm vào Database
+		  		resContact = datasource.createContact(sName, sPhone, sEmail);
+		  		data.putExtra("new_id", resContact.getiID());
+		  		setResult(RESULT_OK, data);
+		  		finish();
+	  		}
+	  		else
+	  		{
+	  			if(iCheckDup == 1)
+	  			{
+	  				Toast.makeText(getApplicationContext(), "Tên " + ctNew.getsName() + " đã tồn tại!", Toast.LENGTH_LONG).show();
+	  			}
+	  			else
+	  				if(iCheckDup == 2)
+		  			{
+		  				Toast.makeText(getApplicationContext(), "Số " + ctNew.getsPhone() + " đã tồn tại!", Toast.LENGTH_LONG).show();
+		  			}
+  				else
+  					if(iCheckDup == 3)
+  		  			{
+  		  				Toast.makeText(getApplicationContext(), "Email " + ctNew.getsEmail() + " đã tồn tại!", Toast.LENGTH_LONG).show();
+  		  			}
+	  		}
+	  		//Đóng database
+	  		datasource.close();
 	  	}
 	  });
         btnCancel.setOnClickListener(new OnClickListener() {
