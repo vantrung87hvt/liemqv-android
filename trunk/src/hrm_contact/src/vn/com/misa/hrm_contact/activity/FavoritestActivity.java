@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import vn.com.misa.hrm_contact.xml.XmlToArrList;
 import android.app.Activity;
@@ -39,7 +39,7 @@ public static final String PREFS_NAME = "ContactPreFile";
     Toast msg;
     ContactAdapter _contacAdapter;
     
-    ArrayList<Contact> contacts;
+    ArrayList<Contact_> contacts;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,13 +64,13 @@ public static final String PREFS_NAME = "ContactPreFile";
     
     public void initDefaultValue()
     {
-    	contacts = new ArrayList<Contact>();
-    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
-        Contact c2 = new Contact("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
-        Contact c3 = new Contact("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
-        Contact c4 = new Contact("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
-        Contact c5 = new Contact("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
-        Contact c6 = new Contact("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
+    	contacts = new ArrayList<Contact_>();
+    	Contact_ c1 = new Contact_("Quang Liem", "0989320758", "liemqv@gmail.com", false);
+        Contact_ c2 = new Contact_("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
+        Contact_ c3 = new Contact_("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
+        Contact_ c4 = new Contact_("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
+        Contact_ c5 = new Contact_("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
+        Contact_ c6 = new Contact_("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
         contacts.add(c1);
         contacts.add(c2);
         contacts.add(c3);
@@ -97,7 +97,7 @@ public static final String PREFS_NAME = "ContactPreFile";
     
     public void addContact()
     {
-    	Contact obj = new Contact("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
+    	Contact_ obj = new Contact_("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
     	contacts.add(obj);
     	displayContact();
     	

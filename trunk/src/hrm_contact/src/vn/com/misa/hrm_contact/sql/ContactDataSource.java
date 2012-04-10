@@ -3,7 +3,7 @@ package vn.com.misa.hrm_contact.sql;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 
 import android.R.bool;
 import android.content.ContentValues;
@@ -34,7 +34,7 @@ public class ContactDataSource {
 			dbHelper.close();
 		}
 
-		public Contact createContact(String _name, String _phone, String _email) {
+		public Contact_ createContact(String _name, String _phone, String _email) {
 			ContentValues values = new ContentValues();
 			//Đẩy các tham số vào parameter để insert
 			values.put(ContactSqliteHelper.COL_NAME, _name);
@@ -45,12 +45,12 @@ public class ContactDataSource {
 			Cursor cursor = database.query(ContactSqliteHelper.TABLE_CONTACT,
 					allColumns, ContactSqliteHelper.COLUMN_ID + " = " + insertId, null, null, null, null);
 			cursor.moveToFirst();
-			Contact newContact = cursorToContact(cursor);
+			Contact_ newContact = cursorToContact(cursor);
 			cursor.close();
 			return newContact;
 		}
 		
-		public Contact createContact(Contact _contact) {
+		public Contact_ createContact(Contact_ _contact) {
 			ContentValues values = new ContentValues();
 			//Đẩy các tham số vào parameter để insert
 			values.put(ContactSqliteHelper.COL_NAME, _contact.getsName());
@@ -61,12 +61,12 @@ public class ContactDataSource {
 			Cursor cursor = database.query(ContactSqliteHelper.TABLE_CONTACT,
 					allColumns, ContactSqliteHelper.COLUMN_ID + " = " + insertId, null, null, null, null);
 			cursor.moveToFirst();
-			Contact newContact = cursorToContact(cursor);
+			Contact_ newContact = cursorToContact(cursor);
 			cursor.close();
 			return newContact;
 		}
 		
-		public boolean editContact(Contact _contact)
+		public boolean editContact(Contact_ _contact)
 		{
 			boolean bRes = false;
 			
@@ -94,15 +94,15 @@ public class ContactDataSource {
 					+ " = " + _id, null);
 		}
 
-		public List<Contact> getAllContacts() {
-			List<Contact> lstContact = new ArrayList<Contact>();
+		public List<Contact_> getAllContacts() {
+			List<Contact_> lstContact = new ArrayList<Contact_>();
 
 			Cursor cursor = database.query(ContactSqliteHelper.TABLE_CONTACT,
-					allColumns, null, null, null, null, null);
+					allColumns, null, null, null, null, "sName");
 
 			cursor.moveToFirst();
 			while (!cursor.isAfterLast()) {
-				Contact objContact = cursorToContact(cursor);
+				Contact_ objContact = cursorToContact(cursor);
 				lstContact.add(objContact);
 				cursor.moveToNext();
 			}
@@ -111,8 +111,8 @@ public class ContactDataSource {
 			return lstContact;
 		}
 		
-		public Contact getOneContacts(Integer _id) {
-			Contact objContact = null;
+		public Contact_ getOneContacts(Integer _id) {
+			Contact_ objContact = null;
 
 			Cursor cursor = database.query(ContactSqliteHelper.TABLE_CONTACT,
 					allColumns, ContactSqliteHelper.COLUMN_ID + " = " + _id, null, null, null, null);
@@ -123,7 +123,7 @@ public class ContactDataSource {
 			return objContact;
 		}
 		
-		public int CheckDupContact(Contact _contact) {
+		public int CheckDupContact(Contact_ _contact) {
 			int iRes = 0;
 			String sWhere = ContactSqliteHelper.COL_NAME + " = '" + _contact.getsName() + "' OR "+
 			ContactSqliteHelper.COL_PHONE + " = '" + _contact.getsPhone() + "' OR "+
@@ -169,8 +169,8 @@ public class ContactDataSource {
 			return iRes;
 		}
 
-		private Contact cursorToContact(Cursor cursor) {
-			Contact objContact = new Contact();
+		private Contact_ cursorToContact(Cursor cursor) {
+			Contact_ objContact = new Contact_();
 			objContact.setiID(cursor.getInt(cursor.getColumnIndexOrThrow("_id")));
 			objContact.setsName(cursor.getString(cursor.getColumnIndexOrThrow("sName")));
 			objContact.setsPhone(cursor.getString(cursor.getColumnIndexOrThrow("sPhone")));

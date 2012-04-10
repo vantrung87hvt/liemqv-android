@@ -1,5 +1,8 @@
 package vn.com.misa.hrm_contact.sql;
 
+import java.util.Vector;
+
+import vn.com.misa.hrm_contact.bean.Column;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -11,10 +14,12 @@ public class ContactSqliteHelper extends SQLiteOpenHelper {
 	public static final String COL_NAME = "sName";
 	public static final String COL_PHONE = "sPhone";
 	public static final String COL_EMAIL = "sEmail";
+	
+	
 
 	private static final String DATABASE_NAME = "hrm_contact";
 	private static final int DATABASE_VERSION = 1;
-
+	
 	// Database creation sql statement
 	private static final String DATABASE_CREATE = "create table "
 			+ TABLE_CONTACT + "( " + COLUMN_ID

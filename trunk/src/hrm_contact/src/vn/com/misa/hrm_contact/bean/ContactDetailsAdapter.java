@@ -19,12 +19,15 @@ public class ContactDetailsAdapter extends ArrayAdapter<ContactDetail> {
 	private ArrayList<ContactDetail> arrContactDetails;
 	Activity context;
 	ContactDetail objContactDetails;
-	
+	Intent actionIntent;
+	String sPhone = "";
+	String sEmail = "";
 	
     public ContactDetailsAdapter(Activity context, int textViewResourceId, ArrayList<ContactDetail> _arrlContactDetails) {
         super(context, textViewResourceId, _arrlContactDetails);
         this.arrContactDetails = _arrlContactDetails;
         this.context = context;
+        this.actionIntent = new Intent();
     }
 
     @Override
@@ -41,13 +44,54 @@ public class ContactDetailsAdapter extends ArrayAdapter<ContactDetail> {
 	            TextView txtTitle = (TextView) v.findViewById(R.id.details_title);
 	            TextView txtValue = (TextView) v.findViewById(R.id.details_value);
 	            ImageButton imgCall = (ImageButton) v.findViewById(R.id.call_button);
-	        	imgCall.setOnClickListener(new OnClickListener() {
-	        		   public void onClick(View v) { 
-	        			   Intent callIntent = new Intent(Intent.ACTION_CALL);
-	        			   callIntent.setData(Uri.parse("tel:" + objContactDetails.getsValue()));
-	        			   context.startActivity(callIntent);
-	        	   }
-	        	});
+	            ImageButton imgSMS = (ImageButton) v.findViewById(R.id.sms_button);
+	            
+	            if(objContactDetails.getIsPhone() == true)
+	            {
+	            	sPhone = objContactDetails.getsValue();
+	            	imgSMS.setImageResource(R.drawable.sms);
+	            	
+	            	imgSMS.setOnClickListener(new OnClickListener() {
+		        		   public void onClick(View v) {
+		        			   actionIntent.setType(Intent.ACTION_SENDTO);
+		        			   actionIntent.setData(Uri.parse("sms:" + sPhone));
+			        		   context.startActivity(actionIntent);
+		        	   }
+		        	});
+	            	
+	            	imgCall.setOnClickListener(new OnClickListener() {
+		        		   public void onClick(View v) {
+		        			   Intent callIntent = new Intent(Intent.ACTION_CALL);
+		        			   callIntent.setData(Uri.parse("tel:" + sPhone));
+		        			   context.startActivity(callIntent);
+		        	   }
+		        	});
+	            	imgCall.setVisibility(View.VISIBLE);
+	            }
+	            
+	            if(objContactDetails.getIsMail() == true)
+	            {
+	            	sEmail = objContactDetails.getsValue();
+	            	imgSMS.setImageResource(R.drawable.email);
+	            	imgSMS.setOnClickListener(new OnClickListener() {
+		        		   public void onClick(View v) {
+		        			   final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+		        			   
+		        			   emailIntent .setType("plain/text");
+		        			    
+		        			   emailIntent .putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"webmaster@website.com"});
+		        			    
+		        			   emailIntent .putExtra(android.content.Intent.EXTRA_SUBJECT, "");
+		        			    
+		        			   emailIntent .putExtra(android.content.Intent.EXTRA_TEXT, "");
+		        			    
+		        			   context.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+		        		   }});
+	            	imgCall.setVisibility(View.INVISIBLE);
+	            }
+	            
+	        	
+	        	
 	
 	      if (txtTitle != null) {
 	    	  txtTitle.setText(objContactDetails.getsTitle());

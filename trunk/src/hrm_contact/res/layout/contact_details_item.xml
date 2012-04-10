@@ -50,23 +50,18 @@
 				android:layout_height="wrap_content"
 				android:cropToPadding="false"
 				android:paddingLeft="10dp"
-				android:src="@drawable/call">
+				android:src="@drawable/call"
+				android:background="#000000">
 				</ImageButton>
-				<!-- 
-			  <ImageView
-		       android:id="@+id/call_icon"
-		       android:layout_width="wrap_content"
-		       android:layout_height="fill_parent"
-		       android:layout_marginRight="10px"
-		       android:src="@drawable/call" />
-		       -->
-		  	  <ImageView
-		       android:id="@+id/action_img"
-		       android:layout_width="wrap_content"
-		       android:layout_height="fill_parent"
-		       android:layout_marginRight="10px"
-		       android:layout_marginLeft="10px"
-		       android:src="@drawable/home" />
+				<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/sms_button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:cropToPadding="false"
+				android:paddingLeft="10dp"
+				android:src="@drawable/sms"
+				android:background="#000000">
+				</ImageButton>
 			</LinearLayout>
 		</TableRow>
 	</TableLayout>

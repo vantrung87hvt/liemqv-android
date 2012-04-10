@@ -8,7 +8,7 @@ import vn.com.misa.hrm_contact.activity.ContactActivity;
 import vn.com.misa.hrm_contact.activity.DemoActivity;
 import vn.com.misa.hrm_contact.activity.FavoritestActivity;
 import vn.com.misa.hrm_contact.activity.NewContactActivity;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import android.R.bool;
 import android.app.Activity;
@@ -41,7 +41,7 @@ public class Hrm_contactActivity  extends TabActivity {
     
     Toast msg;
     
-    ArrayList<Contact> contacts;
+    ArrayList<Contact_> contacts;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,73 +1,85 @@
+/**
+ * Create by: liemqv
+ * Create date: 04/10/2012 
+ * Lớp Contact để chứ đối tượng contact ánh xạ từ bảng tblContact trong Database
+ * */
 package vn.com.misa.hrm_contact.bean;
 
-
 public class Contact {
-	private int iID;
-	private String sName;
-	private String sPhone;
-	private String sEmail;
-	private boolean bIsselected;
+	private int iId;
+	private String sFirstname;
+	private String sLastname;
+	private int iGender;
+	private String sNotes;
+	private String sNickname;
+	private byte[] bAvatar;
 	
-	public Contact(){}
-	
-	public Contact(String _sName, String _sPhone, String _sEmail, boolean _bIsSelected)
-	{
-		this.sName = _sName;
-		this.sPhone = _sPhone;
-		this.sEmail = _sEmail;
-		this.bIsselected = _bIsSelected;
+	public String getsFirstname() {
+		return sFirstname;
 	}
-	
-	public Contact(int _id, String _sName, String _sPhone, String _sEmail, boolean _bIsSelected)
-	{
-		this.iID = _id;
-		this.sName = _sName;
-		this.sPhone = _sPhone;
-		this.sEmail = _sEmail;
-		this.bIsselected = _bIsSelected;
+	public void setsFirstname(String sFirstname) {
+		this.sFirstname = sFirstname;
 	}
-	
-	
-	public int getiID() {
-		return iID;
+	public String getsLastname() {
+		return sLastname;
 	}
-
-	public void setiID(int iID) {
-		this.iID = iID;
+	public void setsLastname(String sLastname) {
+		this.sLastname = sLastname;
 	}
-
-	public String getsName() {
-		return sName;
+	public int getiGender() {
+		return iGender;
 	}
-	public void setsName(String sName) {
-		this.sName = sName;
+	public void setiGender(int iGender) {
+		this.iGender = iGender;
 	}
-	public String getsPhone() {
-		return sPhone;
+	public String getsNotes() {
+		return sNotes;
 	}
-	public void setsPhone(String sPhone) {
-		this.sPhone = sPhone;
+	public void setsNotes(String sNotes) {
+		this.sNotes = sNotes;
 	}
-	public String getsEmail() {
-		return sEmail;
+	public String getsNickname() {
+		return sNickname;
 	}
-	public void setsEmail(String sEmail) {
-		this.sEmail = sEmail;
+	public void setsNickname(String sNickname) {
+		this.sNickname = sNickname;
 	}
-	public boolean isbIsselected() {
-		return bIsselected;
+	public byte[] getbAvatar() {
+		return bAvatar;
 	}
-	public void setbIsselected(boolean bIsselected) {
-		this.bIsselected = bIsselected;
+	public void setbAvatar(byte[] bAvatar) {
+		this.bAvatar = bAvatar;
 	}
 	
-	public String toText()
-	{
-		String sRes = "";
-		sRes += "+)Name: " + this.sName;
-		sRes += "\n+)Phone: " + this.sPhone;
-		sRes += "\n+)Email: " + this.sEmail;
-		return sRes;
+	public int getiId() {
+		return iId;
 	}
-
+	public void setiId(int iId) {
+		this.iId = iId;
+	}
+	public Contact(int _id, String sFirstname, String sLastname, int iGender,
+			String sNotes, String sNickname, byte[] bAvatar) {
+		super();
+		this.iId = _id;
+		this.sFirstname = sFirstname;
+		this.sLastname = sLastname;
+		this.iGender = iGender;
+		this.sNotes = sNotes;
+		this.sNickname = sNickname;
+		this.bAvatar = bAvatar;
+	}
+	
+	public Contact(String sFirstname, String sLastname, int iGender,
+			String sNotes, String sNickname, byte[] bAvatar) {
+		super();
+		this.sFirstname = sFirstname;
+		this.sLastname = sLastname;
+		this.iGender = iGender;
+		this.sNotes = sNotes;
+		this.sNickname = sNickname;
+		this.bAvatar = bAvatar;
+	}
+	
+	public Contact() {
+	}
 }

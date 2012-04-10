@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class ContactAdapter extends ArrayAdapter<Contact> {
-	private ArrayList<Contact> arrContact;
+public class ContactAdapter extends ArrayAdapter<Contact_> {
+	private ArrayList<Contact_> arrContact;
 	Activity context;
 
-    public ContactAdapter(Activity context, int textViewResourceId, ArrayList<Contact> _arrContacs) {
+    public ContactAdapter(Activity context, int textViewResourceId, ArrayList<Contact_> _arrContacs) {
         super(context, textViewResourceId, _arrContacs);
         this.arrContact = _arrContacs;
         this.context = context;
@@ -30,7 +30,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             v = vi.inflate(R.layout.contact_layout, null);
 		}
       
-		Contact objContact = arrContact.get(position);
+		Contact_ objContact = arrContact.get(position);
 		if (objContact != null) {
 	            TextView txtName = (TextView) v.findViewById(R.id.name);
 	            TextView txtEmail = (TextView) v.findViewById(R.id.email);
@@ -46,11 +46,11 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 		return v;
     }
 
-	public ArrayList<Contact> getArrContact() {
+	public ArrayList<Contact_> getArrContact() {
 		return arrContact;
 	}
 
-	public void setArrContact(ArrayList<Contact> arrContact) {
+	public void setArrContact(ArrayList<Contact_> arrContact) {
 		this.arrContact = arrContact;
 	}
     

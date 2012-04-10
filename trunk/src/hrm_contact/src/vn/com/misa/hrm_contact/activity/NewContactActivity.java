@@ -3,7 +3,7 @@ package vn.com.misa.hrm_contact.activity;
 import vn.com.misa.hrm_contact.R;
 import vn.com.misa.hrm_contact.R.id;
 import vn.com.misa.hrm_contact.R.layout;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import android.app.Activity;
 import android.content.Intent;
@@ -43,13 +43,13 @@ public class NewContactActivity extends Activity {
         btnSave.setOnClickListener(new OnClickListener() {
 	  	@Override
 	  	public void onClick(View v) {
-	  		Contact resContact = null;
+	  		Contact_ resContact = null;
 	  		Intent data = new Intent();
 	  		String sName = etName.getText().toString();
 	  		String sPhone = etPhone.getText().toString();
 	  		String sEmail = etEmail.getText().toString();
 	  		
-	  		Contact ctNew = new Contact(sName, sPhone, sEmail, false);
+	  		Contact_ ctNew = new Contact_(sName, sPhone, sEmail, false);
 	  		//Lưu thông tin contact vào database
 	  		datasource.open();
 	  		//Kiểm tra thông tin contact hiện tại đã tồn tại các thông tin (name, phone, email) chưa?

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.bean.ContactDetail;
 import vn.com.misa.hrm_contact.bean.ContactDetailsAdapter;
 import vn.com.misa.hrm_contact.sql.ContactDataSource;
@@ -57,7 +57,7 @@ public class ContactDetailsActivity extends Activity {
 				_id = extras.getInt("contact_id", 0);
 				_index = extras.getInt("contact_index", 0);
 				dtSource.open();
-				Contact ct = dtSource.getOneContacts(_id);
+				Contact_ ct = dtSource.getOneContacts(_id);
 				if(_id != 0 && ct != null)
 				{
 					contactDetails = new ArrayList<ContactDetail>();
@@ -138,7 +138,7 @@ public class ContactDetailsActivity extends Activity {
     {
     	Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
     	sharingIntent.setType("text/plain");
-    	Contact ctShare = dtSource.getOneContacts(_id);
+    	Contact_ ctShare = dtSource.getOneContacts(_id);
     	sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Gửi danh bạ");
     	sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, ctShare.toText());
     	startActivity(Intent.createChooser(sharingIntent, "Chọn phương thức chia sẻ"));
