@@ -3,7 +3,7 @@ package vn.com.misa.hrm_contact.activity;
 import java.util.ArrayList;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import android.app.Activity;
 import android.content.Intent;
@@ -38,8 +38,8 @@ public static final String PREFS_NAME = "ContactPreFile";
     EditText txtKey;
     TextView tvInfor;
     Toast msg;
-    ArrayList<Contact> contacts;
-    ArrayList<Contact> contactsRes;
+    ArrayList<Contact_> contacts;
+    ArrayList<Contact_> contactsRes;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,17 +50,18 @@ public static final String PREFS_NAME = "ContactPreFile";
         initForm();
         initDefaultValue();
         /* Hiển thị theo key code truyền sang */
-        Bundle extras = getIntent().getExtras();
-        if(extras != null) 
-        {
-        	String sKey = extras.getString("strKey");
-        	txtKey.setText(sKey);
-        	displayContactByKey(sKey);
-        }
-        else
-        {
-        	displayContact();
-        }
+//        Bundle extras = getIntent().getExtras();
+//        if(extras != null) 
+//        {
+//        	String sKey = extras.getString("strKey");
+//        	txtKey.setText(sKey);
+//        	displayContactByKey(sKey);
+//        }
+//        else
+//        {
+//        	displayContact();
+//        }
+        displayContact();
     }
     
     public void initForm()
@@ -93,13 +94,13 @@ public static final String PREFS_NAME = "ContactPreFile";
     
     public void initDefaultValue()
     {
-    	contacts = new ArrayList<Contact>();
-    	Contact c1 = new Contact("Quang Liem", "0989320758", "liemqv@gmail.com", false);
-        Contact c2 = new Contact("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
-        Contact c3 = new Contact("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
-        Contact c4 = new Contact("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
-        Contact c5 = new Contact("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
-        Contact c6 = new Contact("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
+    	contacts = new ArrayList<Contact_>();
+    	Contact_ c1 = new Contact_("Quang Liem", "0989320758", "liemqv@gmail.com", false);
+        Contact_ c2 = new Contact_("Tran Quang Trung", "098932077", "trungtq@gmail.com", false);
+        Contact_ c3 = new Contact_("Bui Viet Anh", "0989320758", "anhbv@gmail.com", false);
+        Contact_ c4 = new Contact_("Phan Van Anh", "098932077", "anhpv@gmail.com", false);
+        Contact_ c5 = new Contact_("Tran Trung Dung", "0989320758", "dungtt@gmail.com", false);
+        Contact_ c6 = new Contact_("Be Va Khanh", "098932077", "khanhbv@gmail.com", false);
         contacts.add(c1);
         contacts.add(c2);
         contacts.add(c3);
@@ -107,9 +108,10 @@ public static final String PREFS_NAME = "ContactPreFile";
         contacts.add(c5);
     }
     
-    public ArrayList<Contact> contactByKey(String key)
+    public ArrayList<Contact_> contactByKey(String key)
     {
-    	ArrayList<Contact> res = new ArrayList<Contact>();
+    	Toast.makeText(getApplicationContext(), "Key: " + key, Toast.LENGTH_LONG).show();
+    	ArrayList<Contact_> res = new ArrayList<Contact_>();
     	
     	for(int i=0;i<contacts.size();++i)
     	{
@@ -156,7 +158,7 @@ public static final String PREFS_NAME = "ContactPreFile";
     
     public void addContact()
     {
-    	Contact obj = new Contact("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
+    	Contact_ obj = new Contact_("Bui Thanh Minh", "098932077", "minhbt@gmail.com", false);
     	contacts.add(obj);
     	displayContact();
     }

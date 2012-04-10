@@ -3,7 +3,7 @@ package vn.com.misa.hrm_contact.activity;
 import vn.com.misa.hrm_contact.R;
 import vn.com.misa.hrm_contact.R.id;
 import vn.com.misa.hrm_contact.R.layout;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import android.app.Activity;
 import android.content.Intent;
@@ -48,7 +48,7 @@ public class EditContactActivity extends Activity {
 			_index = extras.getInt("contact_index", 0);
 			
 			datasource.open();
-			Contact ct = datasource.getOneContacts(_id);
+			Contact_ ct = datasource.getOneContacts(_id);
 			etName.setText(ct.getsName());
 			etPhone.setText(ct.getsPhone());
 			etEmail.setText(ct.getsEmail());
@@ -61,7 +61,7 @@ public class EditContactActivity extends Activity {
 	  		String sPhone = etPhone.getText().toString();
 	  		String sEmail = etEmail.getText().toString();
 	  		
-	  		Contact ctTemp = new Contact(_id, sName, sPhone, sEmail, false);
+	  		Contact_ ctTemp = new Contact_(_id, sName, sPhone, sEmail, false);
 	  		
 	  		//Lưu thông tin contact vào database
 	  		datasource.open();

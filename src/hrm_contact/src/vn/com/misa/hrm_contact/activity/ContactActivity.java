@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import vn.com.misa.hrm_contact.R;
-import vn.com.misa.hrm_contact.bean.Contact;
+import vn.com.misa.hrm_contact.bean.Contact_;
 import vn.com.misa.hrm_contact.bean.ContactAdapter;
 import vn.com.misa.hrm_contact.sql.ContactDataSource;
 import vn.com.misa.hrm_contact.xml.XmlToArrList;
@@ -49,7 +49,7 @@ public class ContactActivity extends Activity {
     Toast msg;
     ContactAdapter _contacAdapter;
     
-    ArrayList<Contact> contacts;
+    ArrayList<Contact_> contacts;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +78,7 @@ public class ContactActivity extends Activity {
         datasource = new ContactDataSource(this);
 		datasource.open();
 
-		contacts = (ArrayList<Contact>) datasource.getAllContacts();
+		contacts = (ArrayList<Contact_>) datasource.getAllContacts();
         _contacAdapter = new ContactAdapter(ContactActivity.this, android.R.layout.simple_list_item_1, contacts);
     }
     
@@ -103,6 +103,7 @@ public class ContactActivity extends Activity {
 		}
 		else
 		{
+//			Collections.sort(contacts);
 			_contacAdapter.notifyDataSetChanged();
 		}
     }
@@ -176,7 +177,8 @@ public class ContactActivity extends Activity {
 		{
 			Intent searchContact = new Intent(this, SearchContactActivity.class);
 	        Bundle b = new Bundle();
-	        b.putInt("strKey", keyCode);
+	        String strKey = "" + keyCode;
+	        b.putString("strKey", strKey);
 	        searchContact.putExtras(b);
 	        startActivity(searchContact);
 		}
@@ -195,7 +197,7 @@ public class ContactActivity extends Activity {
 	    	 if(requestCode == REQUEST_CODE_ADD)
 		     {
 		    	 int new_id = data.getExtras().getInt("new_id");
-		    	 Contact newContact = datasource.getOneContacts(new_id);
+		    	 Contact_ newContact = datasource.getOneContacts(new_id);
 		    	 contacts.add(newContact);
 		    	 //Hiển thị
 		    	 displayContact();
@@ -215,7 +217,7 @@ public class ContactActivity extends Activity {
 	    					int edit_index = data.getExtras().getInt("edit_index");
 	    				    int edit_id = data.getExtras().getInt("edit_id");
 	    				    
-	    				    Contact ctEdit = datasource.getOneContacts(edit_id);
+	    				    Contact_ ctEdit = datasource.getOneContacts(edit_id);
 	    				    contacts.set(edit_index, ctEdit);
 	    				 }
 			    	 //Hiển thị

@@ -16,7 +16,7 @@
 	<TextView android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:textSize="16dp"
-      android:text="Email:"/>
+      android:text="Phone:"/>
 	<EditText
 		android:id="@+id/etPhone"
 		android:singleLine="true"
@@ -26,7 +26,7 @@
 	<TextView android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:textSize="16dp"
-      android:text="Phone:"/>
+      android:text="Email:"/>
 	<EditText
 		android:id="@+id/etEmail"
 		android:singleLine="true"
