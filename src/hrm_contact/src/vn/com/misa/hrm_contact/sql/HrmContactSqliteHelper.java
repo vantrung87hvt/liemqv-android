@@ -23,7 +23,7 @@ public class HrmContactSqliteHelper extends SQLiteOpenHelper {
 	public static final String TABLE_CONTACT_NICKNAME = "sNickname";
 	public static final String TABLE_CONTACT_AVATAR = "bAvatar";
 	
-	/*---- FK --*/
+	/*----  --*/
 	public static final String FK_CONTACT = "FK_iContactID";
 	public static final String CATEGORY_NAME = "sCategoryname";
 	public static final String PRIMARY_KEY = "_id";
