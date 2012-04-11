@@ -8,7 +8,7 @@ package vn.com.misa.hrm_contact.bean;
 public class Email {
 	private int iId;
 	private String sEmail;
-	private int iKF_Email_categoryID;
+	private int iFK_Email_categoryID;
 	private int iFK_ContactID;
 	public int getiId() {
 		return iId;
@@ -22,12 +22,13 @@ public class Email {
 	public void setsEmail(String sEmail) {
 		this.sEmail = sEmail;
 	}
-	public int getiKF_Email_categoryID() {
-		return iKF_Email_categoryID;
+	public int getiFK_Email_categoryID() {
+		return iFK_Email_categoryID;
 	}
-	public void setiKF_Email_categoryID(int iKF_Email_categoryID) {
-		this.iKF_Email_categoryID = iKF_Email_categoryID;
+	public void setiFK_Email_categoryID(int iFK_Email_categoryID) {
+		this.iFK_Email_categoryID = iFK_Email_categoryID;
 	}
+	
 	public int getiFK_ContactID() {
 		return iFK_ContactID;
 	}
@@ -39,13 +40,13 @@ public class Email {
 		super();
 		this.iId = _id;
 		this.sEmail = sEmail;
-		this.iKF_Email_categoryID = iKF_Email_categoryID;
+		this.iFK_Email_categoryID = iKF_Email_categoryID;
 		this.iFK_ContactID = iFK_ContactID;
 	}
 	public Email(String sEmail, int iKF_Email_categoryID, int iFK_ContactID) {
 		super();
 		this.sEmail = sEmail;
-		this.iKF_Email_categoryID = iKF_Email_categoryID;
+		this.iFK_Email_categoryID = iKF_Email_categoryID;
 		this.iFK_ContactID = iFK_ContactID;
 	}
 	public Email() {
