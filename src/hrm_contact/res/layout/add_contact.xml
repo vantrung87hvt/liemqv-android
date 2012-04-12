@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="3dip" >
+
+	<!-- Avatar button -->
+	<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/btn_avatar"
+		android:layout_width="105px"
+        android:layout_height="105px"
+		android:cropToPadding="false"
+		android:src="@drawable/avatar_button"
+		android:background="#000000">
+		</ImageButton>
+	<!-- First name -->
+	<TextView android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:textStyle="bold"
+      android:text="@string/edtFirstName"/>
+	<EditText
+		android:id="@+id/edt_first_name"
+		android:singleLine="true"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:hint="@string/edtFirstName"/>
+	<!-- Last name -->
+	<TextView android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:textStyle="bold"
+      android:text="@string/edtLastName"/>
+	<EditText
+		android:id="@+id/edt_last_name"
+		android:singleLine="true"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:hint="@string/edtLastName"/>
+	<TextView android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:textStyle="bold"
+      android:text="@string/label_gender"/>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:padding="3dip" >
+	    <RadioGroup 
+	        android:id="@+id/rdogr_gender"
+	        android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+		    <RadioButton
+			    android:id="@+id/rdo_male"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:checked="true"
+			    android:text="@string/label_male"/>
+		    <RadioButton
+		        android:id="@+id/rdo_fimale"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/label_female"/>
+	    </RadioGroup>
+	</LinearLayout>
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- List phone -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_phone"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true">
+				<Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:layout_gravity="left"
+			        android:text="@string/label_category_home" />
+				<EditText
+			        android:id="@+id/edt_phone_home"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_centerVertical="true"
+			        android:hint="@string/label_phone"
+			        android:inputType="phone"
+			        android:singleLine="true"/>
+			</LinearLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/plus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_category_mobile" />
+				<EditText
+			        android:id="@+id/edt_phone_mobile"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:hint="@string/label_phone"
+			        android:singleLine="true"
+			        android:inputType="phone"/>
+			</LinearLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/plus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+	</LinearLayout>
+	<!-- End Phone -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- List Email -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_email"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_category_home" />
+				<EditText
+			        android:id="@+id/edt_email_home"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:hint="@string/label_category_home"
+			        android:inputType="textEmailAddress"
+			        android:singleLine="true"/>
+			</LinearLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/minus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_category_work" />
+				<EditText
+			        android:id="@+id/edt_email_work"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:hint="@string/label_category_work"
+			        android:inputType="textEmailAddress"
+			        android:singleLine="true"/>
+			</LinearLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/minus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+	</LinearLayout>
+	<!-- End Email -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- List Address -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_address"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="280dp"
+			    android:layout_height="wrap_content" >
+			    <Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_category_home" />
+				<EditText
+			        android:id="@+id/edt_street"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:hint="@string/label_address_street"
+			        android:singleLine="true"/>
+			</RelativeLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/minus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="280dp"
+			    android:layout_height="wrap_content" >
+				<EditText
+			        android:id="@+id/edt_city"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:hint="@string/label_address_city"
+			        android:singleLine="true"/>
+			</RelativeLayout>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="280dp"
+			    android:layout_height="wrap_content" >
+				<EditText
+			        android:id="@+id/edt_state"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:hint="@string/label_address_state"
+			        android:singleLine="true"/>
+			</RelativeLayout>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="280dp"
+			    android:layout_height="wrap_content" >
+				<EditText
+			        android:id="@+id/edt_zipcode"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:hint="@string/label_address_zipcode"
+			        android:singleLine="true"/>
+			</RelativeLayout>
+		</RelativeLayout>
+	</LinearLayout>
+	<!-- End Address -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- List Organization -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_organization"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="280dp"
+			    android:layout_height="wrap_content" >
+			    <Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_category_work" />
+				<EditText
+			        android:id="@+id/edt_org_company"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:hint="@string/label_org_company"
+			        android:singleLine="true"/>
+			</RelativeLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/minus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="280dp"
+			    android:layout_height="wrap_content" >
+				<EditText
+			        android:id="@+id/edt_org_title"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:hint="@string/label_org_title"
+			        android:singleLine="true"/>
+			</RelativeLayout>
+		</RelativeLayout>
+	</LinearLayout>
+	<!-- End ORG -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- List IM -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_im"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_im_skype" />
+				<EditText
+			        android:id="@+id/edt_im_skype"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:hint="@string/label_im_skype"
+			        android:singleLine="true"/>
+			</LinearLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/minus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+		    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<Button
+			        android:id="@+id/btn_category"
+			        android:layout_width="100dp"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:layout_centerVertical="true"
+			        android:text="@string/label_im_yahoo" />
+				<EditText
+			        android:id="@+id/edt_im_yahoo"
+			        android:layout_width="180dp"
+			        android:layout_height="wrap_content"
+			        android:hint="@string/label_im_yahoo"
+			        android:singleLine="true"/>
+			</LinearLayout>
+		    
+		    <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/minus_icon"
+				android:layout_width="22dp"
+		        android:layout_height="22dp"
+				android:cropToPadding="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:src="@drawable/minus_red"
+				android:background="#000000">
+				</ImageButton>
+		</RelativeLayout>
+	</LinearLayout>
+	<!-- End IM -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- Notes -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_notes"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout> 
+	<EditText
+		android:id="@+id/edt_notes"
+		android:singleLine="false"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:hint="@string/label_notes"/>
+	<!-- End Notes -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- Nickname -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_nickname"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<EditText
+		android:id="@+id/edt_nickname"
+		android:singleLine="true"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:hint="@string/label_nickname"/>
+	<!-- End Nickname -->
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- List Website -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:layout_width="200dp"
+	      android:layout_height="wrap_content"
+	      android:textSize="16dp"
+	      android:textStyle="bold"
+	      android:layout_centerVertical="true"
+	      android:layout_alignParentLeft="true"
+	      android:text="@string/label_website"/>
+		<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/plus_icon"
+			android:layout_width="22dp"
+	        android:layout_height="22dp"
+			android:cropToPadding="true"
+			android:layout_marginRight="5dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/plus"
+			android:background="#000000">
+			</ImageButton>
+	</RelativeLayout>
+	<EditText
+		android:id="@+id/edt_website"
+		android:singleLine="true"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:inputType="textUri"
+	    android:hint="@string/label_website"/>
+	<!-- Line -->
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="#000FFF"/>
+	<!-- Button action -->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="45dp"
+	    android:background="#D9D9D9"
+	    android:orientation="horizontal"
+	    android:padding="5dp">
+		<Button
+	        android:id="@+id/save_button"
+	        android:layout_width="130dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+     		android:layout_centerVertical="true"
+	        android:text="@string/label_save" />
+		<Button
+	        android:id="@+id/cancel_button"
+	        android:layout_width="130dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+     		android:layout_centerVertical="true"
+	        android:text="@string/label_cancel" />
+	</RelativeLayout>
+</LinearLayout>
