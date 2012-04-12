@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Hrm_contactActivity!</string>
+    <string name="hello">Hello HRM Contact!</string>
     <string name="app_name">HRM Contacts</string>
 	<string name="app_des">HRM.NET 2012 Contact manager</string>
+	<string name="edtFirstName">Họ</string>
+	<string name="edtLastName">Tên</string>
+	<string name="label_gender">Giới tính</string>
+	<string name="label_phone">Phone</string>
+	<string name="label_email">Email</string>
+	<string name="label_address">Địa chỉ</string>
+	<string name="label_organization">Cơ quan</string>
+	<string name="label_nickname">Nick name</string>
+	<string name="label_notes">Ghi chú</string>
+	<string name="label_website">Trang web</string>
+	<string name="label_im">IM</string>
+	<string name="label_save">Lưu</string>
+	<string name="label_cancel">Hủy</string>
+	<string name="label_category_home">Nhà riêng</string>
+	<string name="label_category_mobile">Di động</string>
+	<string name="label_category_work">Cơ quan</string>
+	<string name="label_address_street">Đường</string>
+	<string name="label_address_city">Phố</string>
+	<string name="label_address_state">Số nhà</string>
+	<string name="label_address_zipcode">Mã bưu chính</string>
+	<string name="label_org_company">Công ty</string>
+	<string name="label_org_title">Chức vụ</string>
+	<string name="label_im_skype">Skype</string>
+	<string name="label_im_yahoo">Yahoo</string>
+	<string name="label_male">Nam</string>
+	<string name="label_female">Nữ</string>
 </resources>
