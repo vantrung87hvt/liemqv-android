@@ -57,6 +57,7 @@ public class Contact {
 	public void setiId(int iId) {
 		this.iId = iId;
 	}
+	
 	public Contact(int _id, String sFirstname, String sLastname, int iGender,
 			String sNotes, String sNickname, byte[] bAvatar) {
 		super();

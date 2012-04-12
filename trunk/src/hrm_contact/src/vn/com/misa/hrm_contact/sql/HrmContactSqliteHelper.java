@@ -1,17 +1,20 @@
 package vn.com.misa.hrm_contact.sql;
 
-import java.util.Vector;
-
-import vn.com.misa.hrm_contact.bean.Column;
+import vn.com.misa.hrm_contact.bean.AddressCategory;
+import vn.com.misa.hrm_contact.bean.EmailCategory;
+import vn.com.misa.hrm_contact.bean.ImCategory;
+import vn.com.misa.hrm_contact.bean.Organization;
+import vn.com.misa.hrm_contact.bean.PhoneCategory;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class HrmContactSqliteHelper extends SQLiteOpenHelper {
+	public Context context;
 	/*---- Database  -------*/
 	private static final String DATABASE_NAME = "hrm_contact";
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 	
 	/*----Bang tblContact --*/
 	public static final String TABLE_CONTACT = "tblContact";
@@ -75,6 +78,7 @@ public class HrmContactSqliteHelper extends SQLiteOpenHelper {
 	
 	public HrmContactSqliteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		this.context = context;
 	}
 	
 	@Override
@@ -188,5 +192,21 @@ public class HrmContactSqliteHelper extends SQLiteOpenHelper {
 		database.execSQL(strTableIm);
 		database.execSQL(strTableOrganization);
 		database.execSQL(strTableWebsite);
+		/* Thêm các danh mục mặc định */
+		PhoneCategoryBLL phoneCategoryBLL = new PhoneCategoryBLL(this.context);
+		phoneCategoryBLL.createPhoneCategory(new PhoneCategory("Nhà riêng"));
+		phoneCategoryBLL.createPhoneCategory(new PhoneCategory("Cơ quan"));
+		
+		EmailCategoryBLL emailCategoryBLL = new EmailCategoryBLL(this.context);
+		emailCategoryBLL.createEmailCategory(new EmailCategory("Cá nhân"));
+		emailCategoryBLL.createEmailCategory(new EmailCategory("Công việc"));
+		
+		AddressCategoryBLL addressCategoryBLL = new AddressCategoryBLL(this.context);
+		addressCategoryBLL.createAddressCategory(new AddressCategory("Nhà riêng"));
+		addressCategoryBLL.createAddressCategory(new AddressCategory("Cơ quan"));
+		
+		ImCategoryBLL imCategoryBLL = new ImCategoryBLL(this.context);
+		imCategoryBLL.createImCategory(new ImCategory("Skype", "SKY"));
+		imCategoryBLL.createImCategory(new ImCategory("Yahoo", "YMS"));
 	}
 }

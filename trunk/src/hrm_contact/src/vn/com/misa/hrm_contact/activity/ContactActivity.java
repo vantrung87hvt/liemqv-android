@@ -1,3 +1,11 @@
+/**
+ * Create by: liemqv
+ * Create date: 29/03/2012 
+ * Acitvity này dùng để hiển thị danh sách contact và thực hiện các tác vụ có trong menu
+ * Modify by: liemqv
+ * Modify date: 12/04/2012 
+ * Modify: thử nghiệm database mới, thay Activity NewContactActivity thành AddContactActivity
+ * */
 package vn.com.misa.hrm_contact.activity;
 
 import java.util.ArrayList;
@@ -120,7 +128,7 @@ public class ContactActivity extends Activity {
     
     public void addContact()
     {
-    	Intent newContact = new Intent(this, NewContactActivity.class);
+    	Intent newContact = new Intent(this, AddContactActivity.class);
         startActivityForResult(newContact, REQUEST_CODE_ADD);
     }
 

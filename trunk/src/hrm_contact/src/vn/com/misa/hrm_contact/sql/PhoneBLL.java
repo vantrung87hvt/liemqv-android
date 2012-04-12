@@ -47,7 +47,7 @@ public class PhoneBLL {
 		 * Trả lại: đối tượng Phone đã thêm vào, nếu lỗi trả lại null
 		 * */
 		@SuppressWarnings("finally")
-		public Phone createContact(Phone phone) {
+		public Phone createPhone(Phone phone) {
 			Phone phoneRes = null;
 			Cursor cursor = null;
 			try{
