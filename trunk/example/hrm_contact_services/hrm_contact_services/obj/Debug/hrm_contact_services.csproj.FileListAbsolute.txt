@@ -1,0 +1,5 @@
+E:\Workspace\1.ASP.NET Example\WCFDemo\hrm_contact_services\hrm_contact_services\bin\hrm_contact_services.dll
+E:\Workspace\1.ASP.NET Example\WCFDemo\hrm_contact_services\hrm_contact_services\bin\hrm_contact_services.pdb
+E:\Workspace\1.ASP.NET Example\WCFDemo\hrm_contact_services\hrm_contact_services\obj\Debug\ResolveAssemblyReference.cache
+E:\Workspace\1.ASP.NET Example\WCFDemo\hrm_contact_services\hrm_contact_services\obj\Debug\hrm_contact_services.dll
+E:\Workspace\1.ASP.NET Example\WCFDemo\hrm_contact_services\hrm_contact_services\obj\Debug\hrm_contact_services.pdb

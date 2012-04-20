@@ -46,6 +46,7 @@ public final class R {
         public static final int ListContact=0x7f060011;
         public static final int ListContactDetails=0x7f06000a;
         public static final int avatar=0x7f060007;
+        public static final int buttonSubmit=0x7f060028;
         public static final int call_button=0x7f060006;
         public static final int cancel_button=0x7f060019;
         public static final int contact_name=0x7f060002;
@@ -53,6 +54,12 @@ public final class R {
         public static final int details_name=0x7f060008;
         public static final int details_title=0x7f06000b;
         public static final int details_value=0x7f06000c;
+        public static final int editTextAddress=0x7f060025;
+        public static final int editTextMail=0x7f060027;
+        public static final int editTextName=0x7f06001d;
+        public static final int editTextPhone=0x7f060023;
+        public static final int editTextPseudo=0x7f060021;
+        public static final int editTextSurname=0x7f06001f;
         public static final int email=0x7f06000f;
         public static final int etEmail=0x7f060017;
         public static final int etKey=0x7f06001a;
@@ -71,6 +78,12 @@ public final class R {
         public static final int save_button=0x7f060018;
         public static final int search_infor=0x7f06001b;
         public static final int sms_button=0x7f06000d;
+        public static final int textViewAddress=0x7f060024;
+        public static final int textViewMail=0x7f060026;
+        public static final int textViewName=0x7f06001c;
+        public static final int textViewPhone=0x7f060022;
+        public static final int textViewPseudo=0x7f060020;
+        public static final int textViewSurname=0x7f06001e;
     }
     public static final class layout {
         public static final int call_log=0x7f030000;
@@ -83,6 +96,7 @@ public final class R {
         public static final int main_menu=0x7f030007;
         public static final int new_contact=0x7f030008;
         public static final int search_contact=0x7f030009;
+        public static final int test_layout=0x7f03000a;
     }
     public static final class string {
         public static final int app_des=0x7f050002;
