@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hrm_contact_services", "hrm_contact_services\hrm_contact_services.csproj", "{368E8A22-6DEC-4B44-92CD-4545454ECA72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{368E8A22-6DEC-4B44-92CD-4545454ECA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{368E8A22-6DEC-4B44-92CD-4545454ECA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{368E8A22-6DEC-4B44-92CD-4545454ECA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{368E8A22-6DEC-4B44-92CD-4545454ECA72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
