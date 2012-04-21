@@ -1,0 +1,5 @@
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\RestService\bin\RestService.dll
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\RestService\bin\RestService.pdb
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\RestService\obj\Debug\ResolveAssemblyReference.cache
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\RestService\obj\Debug\RestService.dll
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\RestService\obj\Debug\RestService.pdb

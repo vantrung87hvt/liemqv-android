@@ -1,0 +1,5 @@
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\WebClient\bin\WebClient.dll
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\WebClient\bin\WebClient.pdb
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\WebClient\obj\Debug\ResolveAssemblyReference.cache
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\WebClient\obj\Debug\WebClient.dll
+D:\liemqv\workspace\liemqv-android\example\RestServiceFull\WebClient\obj\Debug\WebClient.pdb
