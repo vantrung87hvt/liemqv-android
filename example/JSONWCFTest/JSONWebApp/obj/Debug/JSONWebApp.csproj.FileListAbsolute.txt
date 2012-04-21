@@ -1,0 +1,5 @@
+D:\liemqv\workspace\liemqv-android\example\JSONWCFTest\JSONWebApp\obj\Debug\ResolveAssemblyReference.cache
+D:\liemqv\workspace\liemqv-android\example\JSONWCFTest\JSONWebApp\bin\JSONWebApp.dll
+D:\liemqv\workspace\liemqv-android\example\JSONWCFTest\JSONWebApp\bin\JSONWebApp.pdb
+D:\liemqv\workspace\liemqv-android\example\JSONWCFTest\JSONWebApp\obj\Debug\JSONWebApp.dll
+D:\liemqv\workspace\liemqv-android\example\JSONWCFTest\JSONWebApp\obj\Debug\JSONWebApp.pdb

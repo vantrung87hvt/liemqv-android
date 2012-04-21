@@ -1,0 +1,3 @@
+﻿<%@ServiceHost language="C#" debug="true"
+Service="JSONServices.JSONService"
+Factory="System.ServiceModel.Activation.WebScriptServiceHostFactory"%>
