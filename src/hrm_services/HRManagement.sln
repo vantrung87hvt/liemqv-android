@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HRManagement", "HRManagement\", "{3E1F6F1B-B4BC-44B0-8C4F-20A1E297DECC}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/HRManagement"
+		Debug.AspNetCompiler.PhysicalPath = "HRManagement\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\HRManagement\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/HRManagement"
+		Release.AspNetCompiler.PhysicalPath = "HRManagement\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\HRManagement\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "12997"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E1F6F1B-B4BC-44B0-8C4F-20A1E297DECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1F6F1B-B4BC-44B0-8C4F-20A1E297DECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

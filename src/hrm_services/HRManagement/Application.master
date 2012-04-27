@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Application.master.cs"
+    Inherits="Application" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="default.css" rel="stylesheet" type="text/css" />
+    <title>
+        <asp:ContentPlaceHolder ID="PageTitle" runat="server" />
+    </title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Path="~/PersonControl.js" />
+            <asp:ScriptReference Path="~/EditPersonControl.js" />
+            <asp:ScriptReference Path="~/script/Sys.Net.WebServiceProxy.restInvoke.js" />
+        </Scripts>
+        <Services>
+            <asp:ServiceReference Path="~/HRService.svc" />
+            <asp:ServiceReference Path="~/RESTHRService.svc" />
+        </Services>
+    </asp:ScriptManager>
+    <div id="outer">
+        <div id="upbg">
+        </div>
+        <div id="inner">
+            <div id="header">
+                <h1>
+                    HR Management<sup>1.0</sup></h1>
+                <h2>
+                    by Contoso Inc.</h2>
+            </div>
+            <div id="splash">
+            </div>
+            <asp:ContentPlaceHolder ID="TopNavigation" runat="server">
+                <div id="menu">
+                    <ul>
+                        <li class="first"><a href="Default.aspx">Home</a></li>
+                        <li><a href="AddPerson.aspx">Add Person</a></li>
+                    </ul>
+                    <div id="date">
+                        <%= DateTime.Now.ToShortDateString() %></div>
+                </div>
+            </asp:ContentPlaceHolder>
+            <div id="primarycontent">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="secondarycontent">
+                <!-- secondary content start -->
+                <h3>
+                    About HR Management</h3>
+                <div class="content">
+                    <asp:Image runat="server" CssClass="picB" AlternateText="" ImageUrl="~/images/wcf.jpg" />
+                    <p>
+                        HR Management is a sample web application to illustrate the use of WCF services
+                        together with various web client's technologies such as REST, JSON, AJAX, etc.
+                    </p>
+                </div>
+                <h3>Tasks</h3>
+                <div class="content">
+                    <ul class="linklist">
+                        <li class="first"><a href="AddPerson.aspx">Add Person</a></li>
+                    </ul>
+                </div>
+                <!-- secondary content end -->
+            </div>
+            <div id="footer">
+                &copy; HR Management by Contoso Inc. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">
+                    NodeThirtyThree</a>.
+            </div>
+        </div>
+    </form>
+</body>
+</html>
