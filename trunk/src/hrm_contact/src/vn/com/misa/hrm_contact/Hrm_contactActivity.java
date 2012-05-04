@@ -1,36 +1,15 @@
 package vn.com.misa.hrm_contact;
 
-import java.util.ArrayList;
-import java.util.Vector;
-
 import vn.com.misa.hrm_contact.activity.CallLogActivity;
 import vn.com.misa.hrm_contact.activity.ContactActivity;
 import vn.com.misa.hrm_contact.activity.DemoActivity;
 import vn.com.misa.hrm_contact.activity.FavoritestActivity;
-import vn.com.misa.hrm_contact.activity.NewContactActivity;
-import vn.com.misa.hrm_contact.bean.Contact_;
-import vn.com.misa.hrm_contact.bean.ContactAdapter;
-import android.R.bool;
-import android.app.Activity;
-import android.app.ListActivity;
+import vn.com.misa.hrm_contact.service.DemoService;
 import android.app.TabActivity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TabHost;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class Hrm_contactActivity  extends TabActivity {
 
@@ -76,8 +55,16 @@ public class Hrm_contactActivity  extends TabActivity {
                           res.getDrawable(R.drawable.tab_favorites))
                       .setContent(intent);
         tabHost.addTab(spec);
+        
+        //Tab demo
+        
+        intent = new Intent().setClass(this, DemoService.class);
+        spec = tabHost.newTabSpec("Service").setIndicator("Service",
+                          res.getDrawable(R.drawable.tab_favorites))
+                      .setContent(intent);
+        tabHost.addTab(spec);
 
-        tabHost.setCurrentTab(2);
+        tabHost.setCurrentTab(4);
         
     }
 }

@@ -6,6 +6,7 @@
 
     <uses-sdk android:minSdkVersion="8" />
 	<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET" />
     <application
         android:icon="@drawable/hrm_logo"
         android:label="@string/app_name" android:debuggable="true" android:description="@string/app_des">
@@ -77,6 +78,13 @@
          </activity>
          <activity android:name=".activity.AddContactActivity"
                    android:label="New contact">
+           <intent-filter>
+           <action android:name="android.intent.action.VIEW" />
+           <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+         </activity>
+         <activity android:name=".service.DemoService"
+                   android:label="Demo Service">
            <intent-filter>
            <action android:name="android.intent.action.VIEW" />
            <category android:name="android.intent.category.DEFAULT" />

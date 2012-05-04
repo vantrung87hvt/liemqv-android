@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HRManagement", "HRManagement\", "{3E1F6F1B-B4BC-44B0-8C4F-20A1E297DECC}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/HRManagement"
 		Debug.AspNetCompiler.PhysicalPath = "HRManagement\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\HRManagement\"

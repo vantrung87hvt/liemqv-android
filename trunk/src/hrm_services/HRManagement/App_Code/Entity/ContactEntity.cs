@@ -12,61 +12,56 @@ namespace hrm_contact.Entity
     [DataContract]
     public class ContactEntity
     {
-        public ContactEntity()
-        {
-			
-        }
+        private Int32 id;
         [DataMember]
-        public Int32 id;
-
         public Int32 _id
         {
             get { return id; }
             set { id = value; }
         }
-        [DataMember]
-        public String sfirstname;
 
+        private String sfirstname;
+        [DataMember]
         public String sFirstname
         {
             get { return sfirstname; }
             set { sfirstname = value; }
         }
-        [DataMember]
-        public String slastname;
 
+        private String slastname;
+        [DataMember]
         public String sLastname
         {
             get { return slastname; }
             set { slastname = value; }
         }
-        [DataMember]
-        public short igender;
 
+        private short igender;
+        [DataMember]
         public short iGender
         {
             get { return igender; }
             set { igender = value; }
         }
-        [DataMember]
-        public String snotes;
 
+        private String snotes;
+        [DataMember]
         public String sNotes
         {
             get { return snotes; }
             set { snotes = value; }
         }
-        [DataMember]
-        public String snickname;
 
+        private String snickname;
+        [DataMember]
         public String sNickname
         {
             get { return snickname; }
             set { snickname = value; }
         }
-        [DataMember]
-        public Byte[] bavatar;
 
+        private Byte[] bavatar;
+        [DataMember]
         public Byte[] bAvatar
         {
             get { return bavatar; }

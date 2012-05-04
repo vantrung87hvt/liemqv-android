@@ -62,7 +62,7 @@ namespace hrm_contact.DataAccess
         public static bool Remove(Int32 PK_iContactID)
         {
             string cmdName = "spContact_Delete";
-            SqlParameter p = new SqlParameter("@PK_iContactID", PK_iContactID);
+            SqlParameter p = new SqlParameter("@_id", PK_iContactID);
             return Run(cmdName,false,p)>0;
         }
         #region private

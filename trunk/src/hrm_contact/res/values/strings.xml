@@ -29,4 +29,5 @@
 	<string name="label_im_yahoo">Yahoo</string>
 	<string name="label_male">Nam</string>
 	<string name="label_female">Nữ</string>
+	<string name="service_address">http://localhost/hrm-contact/HRMContactService.svc/</string>
 </resources>
