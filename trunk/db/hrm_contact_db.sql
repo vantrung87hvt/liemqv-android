@@ -34,8 +34,8 @@ CREATE TABLE tblContact
 	sFirstname NVarchar(50),
 	sLastname NVarchar(50) NOT NULL,
 	iGender Smallint,
-	sNotes Nvarchar(200),
-	sNickname Varchar(50),
+	sNotes NVarchar(200),
+	sNickname NVarchar(50),
 	bAvartar Varbinary(max)
 )
 GO
@@ -48,7 +48,7 @@ END
 CREATE TABLE tblPhone_category
 (
 	_id Smallint Identity Primary key,
-	sCategoryname Varchar(100)
+	sCategoryname NVarchar(100)
 )
 GO
 
@@ -60,7 +60,7 @@ END
 CREATE TABLE tblEmail_category
 (
 	_id Smallint Identity Primary key,
-	sCategoryname Varchar(100)
+	sCategoryname NVarchar(100)
 )
 GO
 
@@ -72,7 +72,7 @@ END
 CREATE TABLE tblAddress_category
 (
 	_id Smallint Identity Primary key,
-	sCategoryname Varchar(100)
+	sCategoryname NVarchar(100)
 )
 GO
 
@@ -84,7 +84,7 @@ END
 CREATE TABLE tblIm_category
 (
 	_id Smallint Identity Primary key,
-	sCategoryname Varchar(100)
+	sCategoryname NVarchar(100)
 )
 GO
 
@@ -96,7 +96,7 @@ END
 CREATE TABLE tblPhone
 (
 	_id Integer Identity Primary key,
-	sNumber Varchar(15) NOT NULL,
+	sNumber NVarchar(15) NOT NULL,
 	FK_iPhone_categoryID smallint NOT NULL References tblPhone_category(_id),
 	FK_iContactID Integer NOT NULL References tblContact(_id)
 )
@@ -110,7 +110,7 @@ END
 CREATE TABLE tblEmail
 (
 	_id Integer Identity Primary key,
-	sEmail Varchar(50) NOT NULL,
+	sEmail NVarchar(50) NOT NULL,
 	FK_iEmail_categoryID smallint NOT NULL References tblEmail_category(_id),
 	FK_iContactID Integer NOT NULL References tblContact(_id)
 )
@@ -141,7 +141,7 @@ END
 CREATE TABLE tblIm
 (
 	_id Integer Identity Primary key,
-	sIm Varchar(50) NOT NULL,
+	sIm NVarchar(50) NOT NULL,
 	FK_iIm_categoryID smallint NOT NULL References tblIm_category(_id),
 	FK_iContactID Integer NOT NULL References tblContact(_id)
 )
@@ -155,7 +155,7 @@ END
 CREATE TABLE tblWebsite
 (
 	_id Integer Identity Primary key,
-	sWebsite Varchar(100) NOT NULL,
+	sWebsite NVarchar(100) NOT NULL,
 	FK_iContactID Integer NOT NULL References tblContact(_id)
 )
 GO
